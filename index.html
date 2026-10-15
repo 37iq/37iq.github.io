@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>towercode — сайты и Telegram-боты для бизнеса</title>
+<meta name="description" content="Разработка сайтов, Telegram-ботов и парсеров под ключ. Лендинги, онлайн-запись, приём заказов, интеграции, ИИ-ассистенты.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Tektur:wght@500;700;900&family=Onest:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --sky:#D7E6F0; --sky2:#BFD5E4; --ink:#0D1B2A; --ink2:#2B3A4C; --stone:#C8873A; --stone-d:#9C6427; --paper:#F3F6F8; --mute:#5D6B7A;
+  --disp:'Tektur',sans-serif; --body:'Onest',sans-serif; --mono:'JetBrains Mono',monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);background:var(--paper);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.5}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:3px solid var(--stone);outline-offset:3px;border-radius:4px}
+.w{max-width:1240px;margin:0 auto;padding:0 32px}
+.mono{font-family:var(--mono);font-size:13px;letter-spacing:.3px}
+.btn{display:inline-flex;align-items:center;gap:10px;background:var(--ink);color:var(--paper);font-weight:600;font-size:16px;padding:17px 28px;border-radius:14px;transition:transform .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn.st{background:var(--stone);color:var(--ink)}
+.btn.gh{background:transparent;border:2px solid var(--ink)}
+
+/* HEADER */
+header{position:sticky;top:0;z-index:10;background:rgba(215,230,240,.85);backdrop-filter:blur(10px);border-bottom:1px solid rgba(13,27,42,.08)}
+header .w{display:flex;align-items:center;justify-content:space-between;height:72px}
+.logo{display:flex;align-items:center;gap:10px;font-family:var(--disp);font-weight:900;font-size:22px;letter-spacing:.5px}
+.logo svg{width:22px;height:34px}
+.logo span{color:var(--stone-d)}
+nav.top{display:flex;gap:30px;font-weight:500;font-size:15px}
+nav.top a:hover{color:var(--stone-d)}
+
+/* HERO */
+.hero{background:linear-gradient(180deg,var(--sky) 0%,var(--sky2) 100%);position:relative;overflow:hidden}
+.hero .w{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:end;min-height:720px;padding-top:70px}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(13,27,42,.08);border-radius:30px;padding:7px 14px;margin-bottom:26px}
+.eyebrow i{width:8px;height:8px;border-radius:50%;background:#2BB673;box-shadow:0 0 0 4px rgba(43,182,115,.2)}
+h1{font-family:var(--disp);font-weight:900;font-size:76px;line-height:.98;letter-spacing:-1px;margin-bottom:26px}
+h1 em{font-style:normal;color:var(--stone-d)}
+.lead{font-size:20px;color:var(--ink2);max-width:540px;margin-bottom:36px}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:60px}
+.hero-l{padding-bottom:80px}
+.ridge{position:absolute;left:0;right:0;bottom:0;height:160px;pointer-events:none}
+
+/* TOWER (signature) */
+.tower{position:relative;align-self:end;justify-self:center;width:400px;margin-bottom:-2px}
+.roof{width:0;height:0;margin:0 auto;border-left:120px solid transparent;border-right:120px solid transparent;border-bottom:110px solid var(--ink)}
+.floor{position:relative;margin:0 auto;background:var(--ink);color:var(--paper);border-top:2px solid rgba(255,255,255,.08);display:flex;align-items:center;gap:14px;padding:0 18px;height:84px}
+.floor .n{font-family:var(--mono);font-size:11px;color:var(--stone);width:28px}
+.floor b{font-family:var(--disp);font-size:20px;font-weight:700;display:block;line-height:1.1}
+.floor small{font-family:var(--mono);font-size:11.5px;color:#9FB0C2}
+.floor .win{margin-left:auto;width:14px;height:24px;border-radius:7px 7px 2px 2px;background:var(--stone);box-shadow:0 0 18px rgba(200,135,58,.6)}
+.f5{width:250px}.f4{width:270px}.f3{width:290px}.f2{width:310px}.f1{width:330px}.f0{width:370px;background:#1B2B3D}
+.tag-ai{position:absolute;top:56px;left:50%;transform:translateX(-50%);font-family:var(--mono);font-size:11px;color:var(--stone);letter-spacing:1px}
+.callout{position:absolute;font-family:var(--mono);font-size:12px;color:var(--ink2);background:var(--paper);border:1.5px solid var(--ink);border-radius:10px;padding:8px 12px;white-space:nowrap;box-shadow:4px 4px 0 var(--ink)}
+.callout.c1{left:-150px;top:190px}
+.callout.c2{right:-120px;top:360px}
+
+/* STRIP */
+.strip{background:var(--ink);color:var(--paper)}
+.strip .w{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.strip div.it{padding:34px 24px;border-right:1px solid rgba(255,255,255,.08)}
+.strip div.it:last-child{border:0}
+.strip b{font-family:var(--disp);font-size:36px;color:var(--stone);display:block;line-height:1.1}
+.strip span{color:#AFC0D0;font-size:15px}
+
+/* SECTIONS */
+section{padding:120px 0}
+.sh{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;margin-bottom:56px}
+h2{font-family:var(--disp);font-weight:900;font-size:56px;line-height:1;letter-spacing:-.5px}
+.sh p{max-width:420px;color:var(--mute);font-size:17px}
+
+/* SERVICES */
+.svc{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.card{background:#fff;border:1.5px solid rgba(13,27,42,.1);border-radius:20px;padding:28px;display:flex;flex-direction:column;transition:border-color .2s,transform .2s}
+.card:hover{border-color:var(--ink);transform:translateY(-3px)}
+.card .ic{font-family:var(--mono);font-size:12px;color:var(--stone-d);margin-bottom:22px}
+.card h3{font-family:var(--disp);font-size:24px;line-height:1.1;margin-bottom:12px}
+.card p{color:var(--mute);font-size:15px;flex:1;margin-bottom:22px}
+.card .pr{font-weight:700;font-size:18px}
+.card .pr small{font-weight:400;color:var(--mute);font-size:14px}
+
+/* WORKS */
+.works{background:#fff}
+.tabs{display:flex;gap:8px;margin-bottom:30px}
+.tabs button{font:inherit;font-weight:600;border:1.5px solid var(--ink);background:transparent;border-radius:30px;padding:10px 20px;cursor:pointer}
+.tabs button.on{background:var(--ink);color:var(--paper)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.wk{border-radius:18px;overflow:hidden;background:var(--paper);border:1.5px solid rgba(13,27,42,.08);display:flex;flex-direction:column;transition:transform .2s}
+.wk:hover{transform:translateY(-4px)}
+.wk .im{aspect-ratio:3/2;background-size:cover;background-position:top center}
+.wk .t{padding:18px 20px 20px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.wk h3{font-size:17px;font-weight:600}
+.wk span.mono{color:var(--mute)}
+.wk .go{font-family:var(--mono);font-size:12px;white-space:nowrap;color:var(--stone-d)}
+.hide{display:none}
+.note{margin-top:22px;color:var(--mute);font-size:14px}
+
+/* PROCESS */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:2px solid var(--ink)}
+.step{padding:30px 26px 0 0}
+.step .mono{color:var(--stone-d)}
+.step h3{font-family:var(--disp);font-size:22px;margin:10px 0}
+.step p{color:var(--mute);font-size:15px}
+
+/* CTA */
+.cta{background:var(--ink);color:var(--paper);padding:110px 0}
+.cta .w{display:grid;grid-template-columns:1.2fr 1fr;gap:60px;align-items:center}
+.cta h2{font-size:64px}
+.cta h2 em{font-style:normal;color:var(--stone)}
+.cta p{color:#AFC0D0;font-size:18px;margin-top:20px}
+.links{display:flex;flex-direction:column;gap:12px}
+.lk{display:flex;justify-content:space-between;align-items:center;border:1.5px solid rgba(255,255,255,.18);border-radius:16px;padding:20px 24px;font-weight:600;font-size:18px;transition:border-color .2s,background .2s}
+.lk:hover{border-color:var(--stone);background:rgba(200,135,58,.08)}
+.lk small{display:block;font-family:var(--mono);font-weight:400;font-size:12px;color:#8FA2B5;margin-top:2px}
+.lk.main{background:var(--stone);color:var(--ink);border-color:var(--stone)}
+.lk.main small{color:#5a3c14}
+footer{background:var(--ink);color:#6F8396;border-top:1px solid rgba(255,255,255,.08);padding:26px 0;font-size:14px}
+footer .w{display:flex;justify-content:space-between}
+
+@media (max-width:900px){
+  h1{font-size:46px}h2{font-size:38px}nav.top{display:none}
+  .hero .w,.cta .w{grid-template-columns:1fr}.tower{transform:scale(.8);transform-origin:bottom center}.callout{display:none}
+  .svc,.grid,.steps,.strip .w{grid-template-columns:1fr 1fr}.sh{flex-direction:column;align-items:flex-start}
+}
+@media (max-width:560px){.svc,.grid,.steps,.strip .w{grid-template-columns:1fr}.w{padding:0 16px}}
+@media (prefers-reduced-motion:no-preference){
+  .floor{animation:rise .6s cubic-bezier(.2,.8,.2,1) both}
+  .f0{animation-delay:.05s}.f1{animation-delay:.15s}.f2{animation-delay:.25s}.f3{animation-delay:.35s}.f4{animation-delay:.45s}.f5{animation-delay:.55s}.roof{animation:rise .6s .65s both}
+  @keyframes rise{from{opacity:0;transform:translateY(24px)}}
+}
+</style>
+</head>
+<body>
+
+<header><div class="w">
+  <a class="logo" href="#"><svg viewBox="0 0 22 34" aria-hidden="true"><path d="M5 34 L6 12 L3 12 L11 1 L19 12 L16 12 L17 34Z" fill="#0D1B2A"/><rect x="9.5" y="16" width="3" height="5" fill="#C8873A"/></svg>tower<span>code</span></a>
+  <nav class="top"><a href="#services">Услуги</a><a href="#works">Работы</a><a href="#process">Как работаю</a><a href="#contact">Контакты</a></nav>
+  <a class="btn" href="#contact" style="padding:12px 20px;font-size:15px">Обсудить проект</a>
+</div></header>
+
+<section class="hero" style="padding:0">
+  <div class="w">
+    <div class="hero-l">
+      <span class="eyebrow mono"><i></i>принимаю заказы · отвечаю за час</span>
+      <h1>Сайты и <em>Telegram-боты</em>, на которых держится бизнес</h1>
+      <p class="lead">Делаю под ключ: от первого сообщения до запуска на сервере. Лендинги, онлайн-запись, приём заказов, парсеры, интеграции и ИИ-ассистенты.</p>
+      <div class="hero-btns"><a class="btn st" href="#contact">Написать мне →</a><a class="btn gh" href="#works">Смотреть работы</a></div>
+    </div>
+    <div class="tower" aria-label="Из чего складывается проект">
+      <div class="roof"></div><div class="tag-ai">ИИ</div>
+      <div class="floor f5"><span class="n">05</span><div><b>ИИ-ассистент</b><small>GPT · Claude · RAG</small></div><span class="win"></span></div>
+      <div class="floor f4"><span class="n">04</span><div><b>Интеграции</b><small>CRM · Google Sheets · API</small></div><span class="win"></span></div>
+      <div class="floor f3"><span class="n">03</span><div><b>Telegram-бот</b><small>aiogram · mini app · оплата</small></div><span class="win"></span></div>
+      <div class="floor f2"><span class="n">02</span><div><b>Сайт</b><small>HTML · CSS · JS · адаптив</small></div><span class="win"></span></div>
+      <div class="floor f1"><span class="n">01</span><div><b>Данные</b><small>парсеры · PostgreSQL</small></div><span class="win"></span></div>
+      <div class="floor f0"><span class="n">00</span><div><b>Фундамент</b><small>сервер · домен · SSL</small></div></div>
+      <div class="callout c1">каждый этаж — отдельная услуга</div>
+      <div class="callout c2">или вся башня под ключ</div>
+    </div>
+  </div>
+  <svg class="ridge" viewBox="0 0 1440 160" preserveAspectRatio="none" aria-hidden="true"><path d="M0 120 L120 70 L220 105 L360 40 L480 95 L600 60 L720 110 L860 50 L980 100 L1120 65 L1260 105 L1440 75 L1440 160 L0 160Z" fill="#0D1B2A" opacity=".08"/></svg>
+</section>
+
+<div class="strip"><div class="w">
+  <div class="it"><b>10+</b><span>проектов в портфолио: сайты и боты</span></div>
+  <div class="it"><b>от 1 дня</b><span>на небольшие задачи и доработки</span></div>
+  <div class="it"><b>Python · JS</b><span>aiogram, FastAPI, React</span></div>
+  <div class="it"><b>0 ₽</b><span>за правки недочётов после сдачи</span></div>
+</div></div>
+
+<section id="services"><div class="w">
+  <div class="sh"><h2>Что делаю</h2><p>Цены ориентировочные. Точную назову после короткого разговора о задаче, до начала работы.</p></div>
+  <div class="svc">
+    <div class="card"><span class="ic mono">// сайт</span><h3>Лендинг и сайт-визитка</h3><p>Адаптивный сайт с формой заявок в Telegram, картой, отзывами и базовым SEO.</p><div class="pr">от 2 500 ₽ <small>· 2–5 дней</small></div></div>
+    <div class="card"><span class="ic mono">// бот</span><h3>Telegram-бот для бизнеса</h3><p>Приём заказов, онлайн-запись, каталог с оплатой, уведомления администратору.</p><div class="pr">от 1 500 ₽ <small>· 2–7 дней</small></div></div>
+    <div class="card"><span class="ic mono">// данные</span><h3>Парсеры и автоматизация</h3><p>Сбор данных с сайтов и по API, выгрузка в таблицы, интеграции между сервисами.</p><div class="pr">от 2 000 ₽ <small>· 1–3 дня</small></div></div>
+    <div class="card"><span class="ic mono">// правки</span><h3>Доработка сайта</h3><p>WordPress, Tilda, Битрикс, HTML: исправить, добавить блок, ускорить, настроить формы.</p><div class="pr">от 1 000 ₽ <small>· от 1 дня</small></div></div>
+  </div>
+</div></section>
+
+<section class="works" id="works"><div class="w">
+  <div class="sh"><h2>Работы</h2><p>Демо-проекты для разных сфер. Сайты открываются вживую, можно полистать.</p></div>
+  <div class="tabs" role="tablist"><button class="on" data-t="sites">Сайты</button><button data-t="bots">Telegram-боты</button></div>
+  <div class="grid" data-g="sites">
+    <a class="wk" href="works/cafe.html" target="_blank"><div class="im" style="background-image:url(works/cafe_thumb.jpg)"></div><div class="t"><div><h3>Горный очаг</h3><span class="mono">кафе · лендинг</span></div><span class="go">открыть ↗</span></div></a>
+    <a class="wk" href="works/dent.html" target="_blank"><div class="im" style="background-image:url(works/dent_thumb.jpg)"></div><div class="t"><div><h3>Белая линия</h3><span class="mono">стоматология</span></div><span class="go">открыть ↗</span></div></a>
+    <a class="wk" href="works/salon.html" target="_blank"><div class="im" style="background-image:url(works/salon_thumb.jpg)"></div><div class="t"><div><h3>Aura</h3><span class="mono">студия красоты</span></div><span class="go">открыть ↗</span></div></a>
+    <a class="wk" href="works/auto.html" target="_blank"><div class="im" style="background-image:url(works/auto_thumb.jpg)"></div><div class="t"><div><h3>ПроМотор</h3><span class="mono">автосервис</span></div><span class="go">открыть ↗</span></div></a>
+    <a class="wk" href="works/flow.html" target="_blank"><div class="im" style="background-image:url(works/flow_thumb.jpg)"></div><div class="t"><div><h3>Флёр</h3><span class="mono">цветочная мастерская</span></div><span class="go">открыть ↗</span></div></a>
+  </div>
+  <div class="grid hide" data-g="bots">
+    <a class="wk" href="bots/bot_cafe.jpg" target="_blank"><div class="im" style="background-image:url(bots/bot_cafe.jpg)"></div><div class="t"><div><h3>Заказы еды</h3><span class="mono">корзина · оплата · админ</span></div><span class="go">↗</span></div></a>
+    <a class="wk" href="bots/bot_salon.jpg" target="_blank"><div class="im" style="background-image:url(bots/bot_salon.jpg)"></div><div class="t"><div><h3>Онлайн-запись</h3><span class="mono">календарь · напоминания</span></div><span class="go">↗</span></div></a>
+    <a class="wk" href="bots/bot_dent.jpg" target="_blank"><div class="im" style="background-image:url(bots/bot_dent.jpg)"></div><div class="t"><div><h3>Запись в клинику</h3><span class="mono">Google Таблицы</span></div><span class="go">↗</span></div></a>
+    <a class="wk" href="bots/bot_auto.jpg" target="_blank"><div class="im" style="background-image:url(bots/bot_auto.jpg)"></div><div class="t"><div><h3>Статус ремонта</h3><span class="mono">этапы · фото · PDF</span></div><span class="go">↗</span></div></a>
+    <a class="wk" href="bots/bot_flow.jpg" target="_blank"><div class="im" style="background-image:url(bots/bot_flow.jpg)"></div><div class="t"><div><h3>Магазин цветов</h3><span class="mono">каталог · оплата в TG</span></div><span class="go">↗</span></div></a>
+  </div>
+  <p class="note">Названия заведений вымышленные: это демо, чтобы показать подход к дизайну и функциям.</p>
+</div></section>
+
+<section id="process"><div class="w">
+  <div class="sh"><h2>Как работаю</h2><p>Без предоплаты на старте через биржу: вы платите за результат, который видели.</p></div>
+  <div class="steps">
+    <div class="step"><span class="mono">01</span><h3>Обсуждаем</h3><p>Вы описываете задачу, я задаю вопросы и предлагаю решение.</p></div>
+    <div class="step"><span class="mono">02</span><h3>Фиксируем</h3><p>Цена, сроки и что входит в работу — до старта.</p></div>
+    <div class="step"><span class="mono">03</span><h3>Делаю</h3><p>Показываю промежуточный результат, вношу правки.</p></div>
+    <div class="step"><span class="mono">04</span><h3>Запускаю</h3><p>Размещаю на сервере и оставляю инструкцию.</p></div>
+  </div>
+</div></section>
+
+<section class="cta" id="contact"><div class="w">
+  <div><h2>Есть задача? <em>Напишите.</em></h2><p>Отвечаю в течение часа с 9:00 до 22:00 по Москве. Если удобнее работать через биржу с безопасной сделкой — я там тоже есть.</p></div>
+  <div class="links">
+    <a class="lk main" href="https://t.me/Thirty7seven3" target="_blank"><span>Написать в Telegram<small>@Thirty7seven3</small></span><span>→</span></a>
+    <a class="lk" href="https://kwork.ru/user/towercode" target="_blank"><span>Kwork<small>kwork.ru/user/towercode</small></span><span>↗</span></a>
+    <a class="lk" href="https://freelance.ru/towercode" target="_blank"><span>Freelance.ru<small>freelance.ru/towercode</small></span><span>↗</span></a>
+  </div>
+</div></section>
+<footer><div class="w"><span>© 2026 towercode</span><span class="mono">сайты · боты · автоматизация</span></div></footer>
+
+<script>
+document.querySelectorAll('.tabs button').forEach(b=>b.addEventListener('click',()=>{
+  document.querySelectorAll('.tabs button').forEach(x=>x.classList.toggle('on',x===b));
+  document.querySelectorAll('[data-g]').forEach(g=>g.classList.toggle('hide',g.dataset.g!==b.dataset.t));
+}));
+</script>
+</body>
+</html>

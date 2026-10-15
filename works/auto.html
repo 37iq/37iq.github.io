@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ПроМотор — автосервис в Назрани</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sofia+Sans+Extra+Condensed:wght@700;800;900&family=Sofia+Sans+Condensed:wght@500;600;700&family=Golos+Text:wght@400;500;600&family=Tektur:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--conc:#D3CFC8;--paper:#F1EEE8;--ink:#141414;--haz:#FFCC00;--steel:#7E8388;--stamp:#B3122A;
+  --x:'Sofia Sans Extra Condensed',sans-serif;--c:'Sofia Sans Condensed',sans-serif;--b:'Golos Text',sans-serif;--n:'Tektur',sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:#010203}
+body{background:var(--conc);color:var(--ink);font-family:var(--b);-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:3px solid var(--haz);outline-offset:3px}
+.w{max-width:1320px;margin:0 auto;padding:0 48px}
+.lab{font-family:var(--c);font-weight:700;text-transform:uppercase;letter-spacing:1.5px;font-size:14px}
+.haz{background:repeating-linear-gradient(-45deg,var(--haz) 0 22px,var(--ink) 22px 44px)}
+
+.stripe{height:14px}
+.bar{display:flex;align-items:center;justify-content:space-between;padding:22px 48px;max-width:1440px;margin:0 auto}
+.logo{font-family:var(--x);font-weight:900;font-size:40px;letter-spacing:.5px;text-transform:uppercase;display:flex;align-items:center;gap:12px;line-height:1}
+.logo i{display:inline-block;width:34px;height:34px;border-radius:50%;border:5px solid var(--ink);position:relative}
+.logo i:after{content:'';position:absolute;left:50%;top:50%;width:13px;height:4px;background:var(--ink);transform-origin:0 50%;transform:rotate(-40deg)}
+.bar nav{display:flex;gap:30px}
+.open{display:flex;align-items:center;gap:10px;font-family:var(--c);font-weight:700;font-size:16px;text-transform:uppercase}
+.open b{width:10px;height:10px;background:#1DB954;border-radius:50%;box-shadow:0 0 0 4px rgba(29,185,84,.2)}
+
+/* HERO */
+.hero{max-width:1440px;margin:0 auto;display:grid;grid-template-columns:1fr 600px;position:relative;padding:20px 0 0 48px;min-height:820px}
+.hero h1{font-family:var(--x);font-weight:900;font-size:222px;line-height:.78;text-transform:uppercase;letter-spacing:-2px;margin-top:40px}
+.hero h1 s{text-decoration:none;position:relative;display:inline-block}
+.hero h1 s:after{content:'';position:absolute;left:-10px;right:-10px;top:46%;height:26px;background:var(--haz);transform:rotate(-3deg);mix-blend-mode:multiply}
+.hero .sub{display:flex;gap:40px;margin-top:46px;align-items:flex-start;max-width:740px}
+.hero .sub p{font-size:19px;line-height:1.55;max-width:400px}
+.btn{display:inline-flex;align-items:center;gap:14px;background:var(--ink);color:var(--haz);font-family:var(--x);font-weight:800;font-size:30px;text-transform:uppercase;padding:18px 30px;letter-spacing:.5px;line-height:1;white-space:nowrap}
+.btn.y{background:var(--haz);color:var(--ink)}
+.photo{position:relative;background:url(img/a_b.jpg) 60% center/cover;margin-top:0}
+.photo:after{content:'';position:absolute;inset:0;background:linear-gradient(0deg,rgba(20,20,20,.65),rgba(20,20,20,0) 50%)}
+.photo .cap{position:absolute;left:30px;right:30px;bottom:26px;color:var(--paper);z-index:2;display:flex;justify-content:space-between;align-items:flex-end}
+.photo .cap b{font-family:var(--n);font-size:46px;display:block;line-height:1;color:var(--haz)}
+.gauge{position:absolute;left:-200px;top:70px;width:380px;height:380px;border-radius:50%;background:var(--ink);z-index:3;box-shadow:0 30px 60px rgba(0,0,0,.35);border:10px solid #2a2a2a}
+.gauge svg{width:100%;height:100%}
+
+/* TAPE */
+.tape{transform:rotate(-1.8deg);margin:40px -40px 0;background:var(--haz);border-top:4px solid var(--ink);border-bottom:4px solid var(--ink);overflow:hidden;white-space:nowrap;position:relative;z-index:4}
+.tape div{font-family:var(--x);font-weight:900;font-size:44px;text-transform:uppercase;padding:14px 0;letter-spacing:1px}
+.tape span{margin:0 26px}
+
+/* ORDER */
+.order{padding:150px 0 130px}
+.og{display:grid;grid-template-columns:420px 1fr;gap:70px;align-items:start}
+.og h2{font-family:var(--x);font-weight:900;font-size:120px;line-height:.82;text-transform:uppercase}
+.og .side p{font-size:18px;line-height:1.6;margin:30px 0}
+.checks{list-style:none;border-top:3px solid var(--ink)}
+.checks li{padding:16px 0;border-bottom:1px solid rgba(20,20,20,.25);font-weight:600;font-size:17px;display:flex;gap:14px;align-items:center}
+.checks li:before{content:'';width:18px;height:18px;background:var(--haz);border:3px solid var(--ink);flex:none}
+.ticket{background:var(--paper);position:relative;padding:50px 54px 46px;box-shadow:0 30px 60px rgba(0,0,0,.18);transform:rotate(1deg)}
+.ticket:before{content:'';position:absolute;left:0;right:0;top:-12px;height:24px;background:radial-gradient(circle at 12px 12px,var(--conc) 9px,transparent 10px) 0 0/24px 24px repeat-x}
+.t-head{display:flex;justify-content:space-between;align-items:flex-start;border-bottom:3px solid var(--ink);padding-bottom:20px;margin-bottom:22px}
+.t-head h3{font-family:var(--x);font-weight:900;font-size:56px;text-transform:uppercase;line-height:.9}
+.t-head .no{font-family:var(--n);font-size:22px;text-align:right}
+.t-head .no small{display:block;font-family:var(--c);font-size:13px;color:var(--steel);text-transform:uppercase;letter-spacing:1px;font-weight:600}
+.car{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-bottom:26px}
+.car div small{display:block;font-family:var(--c);text-transform:uppercase;font-size:12px;color:var(--steel);letter-spacing:1px;font-weight:600}
+.car div b{font-family:var(--n);font-size:18px;font-weight:500}
+.plate{display:inline-block;border:2px solid var(--ink);border-radius:5px;padding:1px 8px;background:#fff}
+table{width:100%;border-collapse:collapse}
+th{font-family:var(--c);font-size:12px;text-transform:uppercase;letter-spacing:1px;color:var(--steel);text-align:left;padding:8px 0;border-bottom:1.5px solid var(--ink);font-weight:600}
+td{padding:14px 0;border-bottom:1px dashed rgba(20,20,20,.3);font-size:16px}
+td.n,th.n{font-family:var(--n);text-align:right}
+td:first-child{font-family:var(--n);color:var(--steel);width:60px}
+.total{display:flex;justify-content:space-between;align-items:baseline;margin-top:22px}
+.total span{font-family:var(--c);font-weight:700;text-transform:uppercase;letter-spacing:1px}
+.total b{font-family:var(--n);font-size:44px}
+.sign{display:flex;justify-content:space-between;margin-top:34px;font-family:var(--c);font-size:13px;color:var(--steel);text-transform:uppercase;letter-spacing:1px}
+.sign span{border-top:1.5px solid var(--ink);padding-top:6px;width:44%}
+.stamp{position:absolute;left:150px;bottom:22px;width:170px;height:170px;border:5px solid var(--stamp);border-radius:50%;color:var(--stamp);display:flex;flex-direction:column;align-items:center;justify-content:center;transform:rotate(-16deg);opacity:.85;font-family:var(--x);font-weight:900;text-transform:uppercase;text-align:center;mix-blend-mode:multiply}
+.stamp:before{content:'';position:absolute;inset:7px;border:2px solid var(--stamp);border-radius:50%}
+.stamp b{font-size:58px;line-height:.8}
+.stamp span{font-size:18px;letter-spacing:1px}
+
+/* STEPS */
+.steps{background:var(--ink);color:var(--paper);padding:130px 0}
+.steps h2{font-family:var(--x);font-weight:900;font-size:120px;line-height:.82;text-transform:uppercase;margin-bottom:70px}
+.steps h2 em{font-style:normal;color:var(--haz)}
+.sg{display:grid;grid-template-columns:repeat(6,1fr);gap:0;border-top:3px solid #333}
+.s{padding:34px 26px 10px 0;border-right:1px solid #2a2a2a;padding-left:22px}
+.s:first-child{padding-left:0}.s:last-child{border:0}
+.s .k{font-family:var(--n);font-size:15px;color:var(--ink);background:var(--haz);display:inline-block;padding:4px 9px;margin-bottom:24px}
+.s h3{font-family:var(--x);font-weight:800;font-size:38px;text-transform:uppercase;line-height:.9;margin-bottom:12px}
+.s p{color:#a5a9ad;font-size:15px;line-height:1.5}
+.s .t{font-family:var(--c);font-weight:700;text-transform:uppercase;letter-spacing:1px;font-size:13px;color:var(--haz);margin-top:16px;display:block}
+
+/* GALLERY */
+.gal{background:var(--ink);padding:0 0 130px}
+.gg{display:grid;grid-template-columns:1.4fr 1fr;gap:20px}
+.gg .p{position:relative;height:520px;background-size:cover;background-position:center}
+.gg .p .lab{position:absolute;left:0;bottom:0;background:var(--haz);color:var(--ink);padding:10px 16px}
+.nums{display:grid;grid-template-columns:repeat(4,1fr);margin-top:20px;background:#1e1e1e}
+.nums div{padding:34px 30px;border-right:1px solid #2c2c2c;color:var(--paper)}
+.nums b{font-family:var(--n);font-size:56px;display:block;color:var(--haz);line-height:1}
+.nums span{font-family:var(--c);text-transform:uppercase;letter-spacing:1px;font-size:14px;color:#a5a9ad;font-weight:600}
+
+/* CTA */
+.cta{background:var(--haz);padding:120px 0;position:relative}
+.cg{display:grid;grid-template-columns:1fr 540px;gap:80px;align-items:center}
+.cta h2{font-family:var(--x);font-weight:900;font-size:170px;line-height:.8;text-transform:uppercase}
+.cta p{font-size:20px;line-height:1.5;margin:30px 0 40px;max-width:480px}
+.cinfo{display:grid;grid-template-columns:1fr 1fr;gap:22px 30px}
+.cinfo small{display:block;font-family:var(--c);font-weight:700;text-transform:uppercase;letter-spacing:1px;font-size:13px}
+.cinfo b{font-family:var(--n);font-size:20px;font-weight:500}
+form{background:var(--ink);color:var(--paper);padding:44px;border:4px solid var(--ink);box-shadow:14px 14px 0 rgba(20,20,20,.25)}
+form h3{font-family:var(--x);font-weight:900;font-size:52px;text-transform:uppercase;line-height:.9;color:var(--haz)}
+form .lab{color:#8c9095;display:block;margin:6px 0 26px;font-size:13px}
+.f{border:2px solid #333;padding:16px 18px;margin-bottom:12px;font-size:16px;color:#8c9095;display:flex;justify-content:space-between}
+.f.v{color:var(--paper)}
+.brands{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 24px}
+.brands span{border:2px solid #333;padding:8px 13px;font-family:var(--c);font-weight:700;font-size:15px;text-transform:uppercase}
+.brands span.on{background:var(--haz);color:var(--ink);border-color:var(--haz)}
+form .btn{width:100%;justify-content:center;background:var(--haz);color:var(--ink)}
+footer{background:var(--ink);color:#7e8388;padding:30px 0;font-family:var(--c);text-transform:uppercase;letter-spacing:1px;font-size:13px;font-weight:600}
+footer .w{display:flex;justify-content:space-between}
+@media(max-width:900px){.hero,.og,.cg,.gg{grid-template-columns:1fr}.hero h1{font-size:110px}.gauge{display:none}.sg{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<div class="stripe haz"></div>
+<header class="bar">
+  <a class="logo" href="#"><i></i>ПроМотор</a>
+  <nav class="lab"><a href="#order">Цены</a><a href="#steps">Как работаем</a><a href="#gal">Сервис</a><a href="#book">Контакты</a></nav>
+  <span class="open"><b></b>Открыто до 20:00 · +7 (900) 000-00-00</span>
+</header>
+
+<section class="hero">
+  <div>
+    <h1>Ремонт<br>без<br><s>сюрпризов</s></h1>
+    <div class="sub">
+      <p>Сначала диагностика и цена в заказ-наряде. Потом ремонт — ровно на эту сумму. Если найдём что-то ещё, позвоним и спросим.</p>
+      <a class="btn y" href="#book">Записаться →</a>
+    </div>
+  </div>
+  <div class="photo" role="img" aria-label="Автомобиль в боксе сервиса">
+    <div class="gauge" aria-hidden="true"><svg id="g" viewBox="0 0 380 380"></svg></div>
+    <div class="cap"><div><span class="lab">бокс № 1</span><b>6 постов</b></div><div style="text-align:right"><span class="lab">гарантия</span><b>12 мес</b></div></div>
+  </div>
+</section>
+
+<div class="tape" aria-hidden="true"><div><span>Запись онлайн</span>●<span>Гарантия 12 месяцев</span>●<span>Видео-отчёт о ремонте</span>●<span>Оригинальные запчасти</span>●<span>Запись онлайн</span>●<span>Гарантия 12 месяцев</span></div></div>
+
+<section class="order" id="order"><div class="w og">
+  <div class="side">
+    <h2>Цена —<br>до ремонта</h2>
+    <p>Так выглядит наш заказ-наряд. Его подписываете вы и мастер ещё до того, как машина заедет на подъёмник.</p>
+    <ul class="checks"><li>Работы считаем по нормо-часам</li><li>Запчасти — с чеками поставщика</li><li>Старые детали отдаём вам</li><li>Видео-отчёт о ремонте в WhatsApp</li></ul>
+  </div>
+  <div class="ticket">
+    <div class="t-head"><h3>Заказ-наряд</h3><div class="no"><small>номер</small>№ 0146 · 14.10.2026</div></div>
+    <div class="car">
+      <div><small>автомобиль</small><b>Toyota Camry</b></div>
+      <div><small>год</small><b>2018</b></div>
+      <div><small>пробег</small><b>142 300 км</b></div>
+      <div><small>госномер</small><b><span class="plate">А 006 АА 06</span></b></div>
+    </div>
+    <table>
+      <thead><tr><th>№</th><th>Работа</th><th class="n">Н/ч</th><th class="n">Сумма, ₽</th></tr></thead>
+      <tbody>
+        <tr><td>01</td><td>Компьютерная диагностика</td><td class="n">1,0</td><td class="n">1 000</td></tr>
+        <tr><td>02</td><td>Замена масла и масляного фильтра</td><td class="n">0,5</td><td class="n">800</td></tr>
+        <tr><td>03</td><td>Замена передних тормозных колодок</td><td class="n">0,8</td><td class="n">1 200</td></tr>
+        <tr><td>04</td><td>Замена стоек стабилизатора, 2 шт.</td><td class="n">1,0</td><td class="n">1 500</td></tr>
+        <tr><td>05</td><td>Развал-схождение на 3D-стенде</td><td class="n">1,0</td><td class="n">1 500</td></tr>
+      </tbody>
+    </table>
+    <div class="total"><span>Итого работы</span><b>6 000 ₽</b></div>
+    <div class="sign"><span>мастер</span><span>клиент</span></div>
+    <div class="stamp"><span>гарантия</span><b>12 мес</b><span>ПроМотор</span></div>
+  </div>
+</div></section>
+
+<section class="steps" id="steps"><div class="w">
+  <h2>Шесть шагов<br><em>от звонка до ключей</em></h2>
+  <div class="sg">
+    <div class="s"><span class="k">01</span><h3>Запись</h3><p>Онлайн или по телефону на удобное время.</p><span class="t">2 минуты</span></div>
+    <div class="s"><span class="k">02</span><h3>Диагностика</h3><p>Сканер, подъёмник, тест-драйв с мастером.</p><span class="t">до 60 минут</span></div>
+    <div class="s"><span class="k">03</span><h3>Заказ-наряд</h3><p>Согласуем список работ и итоговую цену.</p><span class="t">подпись</span></div>
+    <div class="s"><span class="k">04</span><h3>Ремонт</h3><p>Работаем строго по согласованному списку.</p><span class="t">от 1 часа</span></div>
+    <div class="s"><span class="k">05</span><h3>Отчёт</h3><p>Присылаем видео и фото снятых деталей.</p><span class="t">в WhatsApp</span></div>
+    <div class="s"><span class="k">06</span><h3>Ключи</h3><p>Выдаём авто с гарантийным талоном.</p><span class="t">12 месяцев</span></div>
+  </div>
+</div></section>
+
+<section class="gal" id="gal"><div class="w">
+  <div class="gg">
+    <div class="p" style="background-image:url(img/a_c.jpg)"><span class="lab">бокс № 2 · двигатель</span></div>
+    <div class="p" style="background-image:url(img/a_d.jpg)"><span class="lab">инструмент · 1 400 позиций</span></div>
+  </div>
+  <div class="nums">
+    <div><b>6</b><span>подъёмников</span></div>
+    <div><b>3D</b><span>стенд развал-схождения</span></div>
+    <div><b>9 400</b><span>машин отремонтировано</span></div>
+    <div><b>4,9</b><span>рейтинг в 2ГИС</span></div>
+  </div>
+</div></section>
+
+<section class="cta" id="book"><div class="w cg">
+  <div>
+    <h2>Заезжай<br>на ремонт</h2>
+    <p>Перезвоним за 10 минут, подберём время и скажем примерную стоимость ещё до визита.</p>
+    <div class="cinfo">
+      <div><small>адрес</small><b>Назрань, ул. Картоева, 144</b></div>
+      <div><small>часы</small><b>Пн–Сб 8:00–20:00</b></div>
+      <div><small>телефон</small><b>+7 (900) 000-00-00</b></div>
+      <div><small>эвакуатор</small><b>от 1 500 ₽</b></div>
+    </div>
+  </div>
+  <form onsubmit="return false">
+    <h3>Запись<br>на сервис</h3>
+    <span class="lab">ответим в течение 10 минут</span>
+    <div class="f v">Магомед<span>✓</span></div>
+    <div class="f">+7 (___) ___-__-__</div>
+    <div class="brands"><span>Lada</span><span class="on">Toyota</span><span>Kia</span><span>Hyundai</span><span>Mercedes</span><span>Другая</span></div>
+    <div class="f">Что беспокоит? Например, стук справа</div>
+    <a class="btn" href="#">Записаться на сервис</a>
+  </form>
+</div></section>
+<footer><div class="w"><span>© 2026 ПроМотор · автосервис</span><span>Демо-проект для портфолио</span></div></footer>
+
+<script>
+(function(){
+  const s=document.getElementById('g'),NS='http://www.w3.org/2000/svg',cx=190,cy=190;
+  const a0=-225,a1=45; // degrees
+  const P=(r,a)=>[cx+r*Math.cos(a*Math.PI/180),cy+r*Math.sin(a*Math.PI/180)];
+  let h='';
+  // red zone arc
+  const z0=a0+(a1-a0)*6.2/8, [x1,y1]=P(150,z0),[x2,y2]=P(150,a1);
+  h+=`<path d="M${x1} ${y1} A150 150 0 0 1 ${x2} ${y2}" stroke="#B3122A" stroke-width="14" fill="none"/>`;
+  for(let i=0;i<=80;i++){const a=a0+(a1-a0)*i/80, big=i%10===0, mid=i%5===0;const [xa,ya]=P(big?118:mid?128:134,a),[xb,yb]=P(146,a);
+    h+=`<line x1="${xa}" y1="${ya}" x2="${xb}" y2="${yb}" stroke="${i>62?'#ff5a5a':'#F1EEE8'}" stroke-width="${big?4:mid?2.5:1.3}"/>`;
+    if(big){const [xt,yt]=P(96,a);h+=`<text x="${xt}" y="${yt+9}" text-anchor="middle" font-family="Tektur" font-size="26" font-weight="700" fill="#F1EEE8">${i/10}</text>`}}
+  h+=`<text x="${cx}" y="${cy+66}" text-anchor="middle" font-family="Sofia Sans Condensed" font-size="13" letter-spacing="2" fill="#7E8388">ОБ/МИН ×1000</text>`;
+  h+=`<text x="${cx}" y="${cy+110}" text-anchor="middle" font-family="Tektur" font-size="30" font-weight="700" fill="#FFCC00">60 МИН</text>`;
+  h+=`<text x="${cx}" y="${cy+132}" text-anchor="middle" font-family="Sofia Sans Condensed" font-size="13" letter-spacing="2" fill="#F1EEE8">ДИАГНОСТИКА</text>`;
+  const na=a0+(a1-a0)*5.6/8,[nx,ny]=P(140,na),[bx,by]=P(-22,na);
+  h+=`<line x1="${bx}" y1="${by}" x2="${nx}" y2="${ny}" stroke="#FFCC00" stroke-width="6" stroke-linecap="round"/>`;
+  h+=`<circle cx="${cx}" cy="${cy}" r="18" fill="#FFCC00"/><circle cx="${cx}" cy="${cy}" r="7" fill="#141414"/>`;
+  s.innerHTML=h;
+})();
+</script>
+</body>
+</html>

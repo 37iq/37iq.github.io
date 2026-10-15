@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Горный очаг — кафе ингушской кухни</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Golos+Text:wght@400;500;600;700&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --garnet:#7A0F25; --garnet-d:#5E0A1C; --saffron:#F4B63F; --bone:#F6EEE1; --char:#1A0E0C; --herb:#3E6B3A;
+  --display:'Dela Gothic One',sans-serif; --body:'Golos Text',sans-serif; --hand:'Caveat',cursive;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:#010203}
+body{font-family:var(--body);color:var(--char);background:var(--bone);-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.w{max-width:1280px;margin:0 auto;padding:0 40px}
+:focus-visible{outline:3px solid var(--saffron);outline-offset:3px}
+
+/* HERO */
+.hero{background:var(--garnet);color:var(--bone);position:relative;overflow:hidden;padding-bottom:210px}
+.top{position:relative;z-index:6;display:flex;align-items:center;justify-content:space-between;padding:30px 0}
+.brand{display:flex;align-items:center;gap:14px;font-family:var(--display);font-size:22px;letter-spacing:.5px}
+.brand svg{width:34px;height:44px}
+.menu{display:flex;gap:36px;font-weight:500;font-size:15px;opacity:.85}
+.call{border:1.5px solid rgba(246,238,225,.35);padding:12px 22px;border-radius:40px;font-weight:600;font-size:15px}
+.hero-grid{display:grid;grid-template-columns:1.05fr 1fr;align-items:center;min-height:700px;position:relative}
+.kicker{font-family:var(--hand);font-size:34px;color:var(--saffron);transform:rotate(-3deg);display:inline-block;margin-bottom:6px}
+h1{font-family:var(--display);font-weight:400;font-size:104px;line-height:.92;letter-spacing:-1px;text-transform:uppercase}
+h1 em{font-style:normal;color:var(--saffron)}
+.lead{font-size:20px;line-height:1.55;max-width:470px;margin:30px 0 40px;color:rgba(246,238,225,.82)}
+.btns{display:flex;gap:14px;align-items:center}
+.btn{display:inline-flex;align-items:center;gap:10px;background:var(--saffron);color:var(--char);font-weight:700;font-size:17px;padding:20px 34px;border-radius:60px}
+.btn.ghost{background:transparent;color:var(--bone);border:1.5px solid rgba(246,238,225,.4)}
+.plate{position:absolute;right:-150px;top:120px;width:780px;height:780px;border-radius:50%;
+  background:url(img/f_f.jpg) center/150% no-repeat;box-shadow:0 60px 120px rgba(0,0,0,.45), inset 0 0 0 18px rgba(0,0,0,.12)}
+.plate:after{content:'';position:absolute;inset:-26px;border-radius:50%;border:2px dashed rgba(244,182,63,.35)}
+.sticker{position:absolute;right:540px;top:170px;width:170px;height:170px;border-radius:50%;background:var(--saffron);color:var(--char);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;transform:rotate(-12deg);box-shadow:0 18px 40px rgba(0,0,0,.3);z-index:3}
+.sticker b{font-family:var(--display);font-size:52px;line-height:1}
+.sticker span{font-weight:700;font-size:14px;text-transform:uppercase;letter-spacing:1px;margin-top:4px}
+.note{position:absolute;right:120px;bottom:-10px;font-family:var(--hand);font-size:34px;color:var(--saffron);transform:rotate(-4deg);z-index:3;line-height:1.05}
+.note svg{position:absolute;left:-90px;top:-70px;width:100px}
+.towers{position:absolute;left:0;right:0;bottom:-2px;height:260px;color:var(--garnet-d);z-index:2}
+.towers svg{width:100%;height:100%;display:block}
+
+/* FACT BAND */
+.band{background:var(--saffron);padding:34px 0;position:relative;z-index:4}
+.band .w{display:flex;justify-content:space-between;align-items:center}
+.band div.f{display:flex;align-items:baseline;gap:14px}
+.band b{font-family:var(--display);font-weight:400;font-size:46px;color:var(--garnet)}
+.band span{font-weight:600;font-size:16px;max-width:170px;line-height:1.3}
+.band i{width:8px;height:8px;background:var(--garnet);transform:rotate(45deg)}
+
+/* MENU */
+.menu-sec{padding:130px 0 120px}
+.menu-head{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:70px}
+h2{font-family:var(--display);font-weight:400;font-size:84px;line-height:.95;text-transform:uppercase;color:var(--garnet)}
+.menu-head p{max-width:380px;font-size:18px;line-height:1.55;color:#5a4a44}
+.menu-grid{display:grid;grid-template-columns:1fr 1fr 420px;gap:70px;align-items:start}
+.cat{margin-bottom:46px}
+.cat h3{font-family:var(--hand);font-size:38px;color:var(--herb);margin-bottom:12px;line-height:1}
+.dish{display:flex;align-items:baseline;gap:10px;padding:13px 0}
+.dish .n{font-weight:700;font-size:19px;white-space:nowrap}
+.dish .dots{flex:1;border-bottom:2px dotted #c9b9a6;transform:translateY(-5px)}
+.dish .p{font-family:var(--display);font-size:20px;color:var(--garnet)}
+.dish small{display:block;font-size:14px;color:#7c6c64;margin-top:3px;font-weight:400}
+.dish .nd{display:flex;flex-direction:column}
+.hit{display:inline-block;background:var(--garnet);color:var(--bone);font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:3px 8px;border-radius:20px;margin-left:8px;vertical-align:3px}
+.menu-photo{position:relative}
+.menu-photo img{width:100%;height:560px;object-fit:cover;border-radius:220px 220px 24px 24px;display:block}
+.menu-photo .tag{position:absolute;left:-40px;bottom:50px;background:var(--bone);border:2px solid var(--char);border-radius:14px;padding:16px 20px;transform:rotate(-5deg);box-shadow:6px 6px 0 var(--char)}
+.menu-photo .tag b{font-family:var(--display);font-size:28px;color:var(--garnet);display:block}
+.menu-photo .tag span{font-family:var(--hand);font-size:24px}
+
+/* BANQUET */
+.banquet{background:var(--char);color:var(--bone);display:grid;grid-template-columns:1fr 1fr;min-height:640px}
+.banquet .img{background:url(img/cafe2.jpg) center/cover;position:relative}
+.banquet .img:after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent 60%,var(--char))}
+.banquet .txt{padding:110px 90px 110px 60px;display:flex;flex-direction:column;justify-content:center}
+.banquet h2{color:var(--saffron);font-size:72px}
+.banquet p{font-size:19px;line-height:1.6;color:rgba(246,238,225,.75);margin:26px 0 40px;max-width:480px}
+.cap{display:grid;grid-template-columns:repeat(3,auto);gap:46px;margin-bottom:46px}
+.cap b{font-family:var(--display);font-size:44px;display:block;color:var(--bone)}
+.cap span{font-size:14px;color:rgba(246,238,225,.6)}
+
+/* REVIEWS */
+.rev{padding:130px 0;background:var(--bone)}
+.rev-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:70px}.score{display:flex;align-items:center;gap:18px;font-weight:600;color:#6d5d55;line-height:1.4}.score b{font-family:var(--display);font-weight:400;font-size:90px;color:var(--garnet);line-height:1}.score span{display:block;color:var(--saffron);font-size:22px;letter-spacing:3px}
+.rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:34px}
+.card{background:#fff;border-radius:22px;padding:38px 34px;position:relative;box-shadow:0 2px 0 #e5d8c4}
+.card:nth-child(1){transform:rotate(-1.5deg)}.card:nth-child(2){transform:translateY(30px) rotate(1deg)}.card:nth-child(3){transform:rotate(-.6deg)}
+.card q{display:block;font-size:20px;line-height:1.5;font-weight:500;quotes:none;margin-bottom:28px}
+.card .who{font-family:var(--hand);font-size:30px;color:var(--garnet)}
+.card .dish-ref{font-size:13px;color:#8b7b70;text-transform:uppercase;letter-spacing:1px;font-weight:600}
+.card .stars{color:var(--saffron);font-size:22px;letter-spacing:3px;margin-bottom:18px}
+
+/* BOOK */
+.book{background:var(--garnet);color:var(--bone);padding:120px 0;position:relative;overflow:hidden}
+.book .w{display:grid;grid-template-columns:1fr 520px;gap:90px;align-items:center;position:relative;z-index:2}
+.book h2{color:var(--bone);font-size:96px}
+.book h2 em{color:var(--saffron);font-style:normal}
+.info{margin-top:40px;display:grid;grid-template-columns:1fr 1fr;gap:26px 40px}
+.info div span{display:block;font-size:13px;text-transform:uppercase;letter-spacing:1.5px;color:var(--saffron);font-weight:700;margin-bottom:6px}
+.info div b{font-size:19px;font-weight:600}
+form{background:var(--bone);color:var(--char);border-radius:28px;padding:44px}
+form h3{font-family:var(--display);font-weight:400;font-size:30px;color:var(--garnet);margin-bottom:8px}
+form p{color:#6d5d55;margin-bottom:26px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+label{display:block;font-size:13px;font-weight:600;color:#6d5d55;margin-bottom:7px}
+.fld{background:#fff;border:2px solid #e6dac8;border-radius:14px;padding:16px 18px;font-size:16px;margin-bottom:16px;color:var(--char)}
+.chips{display:flex;gap:8px;margin-bottom:22px}
+.chip{border:2px solid #e6dac8;border-radius:30px;padding:10px 16px;font-weight:600;font-size:15px}
+.chip.on{background:var(--char);border-color:var(--char);color:var(--bone)}
+form .btn{width:100%;justify-content:center;background:var(--garnet);color:var(--bone)}
+.fine{font-size:13px;color:#8b7b70;text-align:center;margin-top:14px}
+.book .towers{height:160px;opacity:1;color:var(--garnet-d);z-index:1}
+
+footer{background:var(--char);color:rgba(246,238,225,.5);padding:34px 0;font-size:14px}
+footer .w{display:flex;justify-content:space-between}
+
+@media (max-width:900px){
+  h1{font-size:58px}.hero-grid,.menu-grid,.banquet,.book .w,.rev-grid{grid-template-columns:1fr}
+  .plate{position:relative;right:auto;top:auto;width:100%;height:auto;aspect-ratio:1}.sticker,.note,.menu{display:none}
+}
+@media (prefers-reduced-motion:no-preference){
+  .sticker{animation:wob 6s ease-in-out infinite}@keyframes wob{50%{transform:rotate(-6deg) scale(1.03)}}
+}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <symbol id="tw" viewBox="0 0 60 200"><path d="M14 200 L18 52 L12 52 L30 8 L48 52 L42 52 L46 200 Z" fill="currentColor"/><rect x="27" y="70" width="6" height="12" fill="#00000022"/><rect x="27" y="110" width="6" height="12" fill="#00000022"/><rect x="27" y="150" width="6" height="12" fill="#00000022"/></symbol>
+    <symbol id="tw2" viewBox="0 0 60 200"><path d="M10 200 L14 46 L10 46 L10 36 L50 36 L50 46 L46 46 L50 200 Z" fill="currentColor"/><path d="M14 36 L30 4 L46 36Z" fill="currentColor"/><rect x="26" y="66" width="8" height="12" fill="#00000022"/><rect x="26" y="112" width="8" height="12" fill="#00000022"/></symbol>
+  </defs>
+</svg>
+
+<header class="hero">
+  <div class="w">
+    <div class="top">
+      <a class="brand" href="#"><svg viewBox="0 0 60 200" aria-hidden="true"><use href="#tw" style="color:var(--saffron)"/></svg>Горный очаг</a>
+      <nav class="menu"><a href="#menu">Меню</a><a href="#banquet">Банкеты</a><a href="#rev">Отзывы</a><a href="#book">Контакты</a></nav>
+      <a class="call" href="#">+7 (900) 000-00-00</a>
+    </div>
+    <div class="hero-grid">
+      <div>
+        <span class="kicker">ингушская кухня с 2014 года</span>
+        <h1>Жижиг-<br>галнаш<br><em>как дома,</em><br>только быстрее</h1>
+        <p class="lead">Готовим на углях и в казане по семейным рецептам. Обедайте в зале у подножия башен или закажите доставку — привезём горячим.</p>
+        <div class="btns"><a class="btn" href="#book">Забронировать стол →</a><a class="btn ghost" href="#menu">Открыть меню</a></div>
+      </div>
+    </div>
+  </div>
+  <div class="plate" role="img" aria-label="Мясо на углях с овощами"></div>
+  <div class="sticker"><b>40</b><span>минут<br>доставка</span></div>
+  <div class="note" style="bottom:200px">шашлык с углей<br>890 ₽ — хит недели
+    <svg viewBox="0 0 100 80" fill="none" stroke="#F4B63F" stroke-width="3" stroke-linecap="round"><path d="M95 70 C60 70 30 50 15 15"/><path d="M8 28 L15 13 L28 22"/></svg>
+  </div>
+  <div class="towers" aria-hidden="true">
+    <svg viewBox="0 0 1440 260" preserveAspectRatio="xMidYMax slice">
+      <path d="M0 200 C180 170 320 215 520 188 C760 155 900 205 1100 178 C1250 160 1350 188 1440 172 L1440 260 L0 260Z" fill="currentColor"/>
+      <use href="#tw" x="40" y="40" width="80" height="210"/><use href="#tw2" x="110" y="95" width="56" height="150"/><use href="#tw" x="160" y="130" width="40" height="110"/>
+      <use href="#tw" x="400" y="80" width="64" height="170"/><use href="#tw2" x="452" y="130" width="44" height="110"/>
+      <use href="#tw2" x="640" y="110" width="52" height="140"/><use href="#tw" x="690" y="30" width="86" height="220"/><use href="#tw" x="770" y="120" width="44" height="120"/>
+      <use href="#tw" x="1000" y="95" width="62" height="160"/>
+      <use href="#tw2" x="1215" y="60" width="66" height="190"/><use href="#tw" x="1278" y="100" width="54" height="150"/><use href="#tw" x="1340" y="150" width="36" height="100"/>
+    </svg>
+  </div>
+</header>
+
+<div class="band"><div class="w">
+  <div class="f"><b>12</b><span>лет готовим для Назрани</span></div><i></i>
+  <div class="f"><b>120</b><span>гостей в банкетном зале</span></div><i></i>
+  <div class="f"><b>4,9</b><span>средняя оценка на картах</span></div><i></i>
+  <div class="f"><b>0 ₽</b><span>доставка от 1 500 ₽</span></div>
+</div></div>
+
+<section class="menu-sec" id="menu"><div class="w">
+  <div class="menu-head"><h2>Меню<br>дня</h2><p>Мясо от фермеров Сунженского района, тесто замешиваем утром, соусы — свои. Порции рассчитаны на хороший аппетит.</p></div>
+  <div class="menu-grid">
+    <div>
+      <div class="cat"><h3>с казана</h3>
+        <div class="dish"><div class="nd"><span class="n">Жижиг-галнаш<span class="hit">хит</span></span><small>баранина, галушки, чесночный соус</small></div><span class="dots"></span><span class="p">690</span></div>
+        <div class="dish"><div class="nd"><span class="n">Плов с бараниной</span><small>нут, барбарис, курдюк</small></div><span class="dots"></span><span class="p">550</span></div>
+        <div class="dish"><div class="nd"><span class="n">Хингалш с тыквой</span><small>тонкое тесто, сливочное масло</small></div><span class="dots"></span><span class="p">320</span></div>
+      </div>
+      <div class="cat"><h3>с тандыра</h3>
+        <div class="dish"><div class="nd"><span class="n">Чепалгаш</span><small>лепёшки с творогом, 3 шт.</small></div><span class="dots"></span><span class="p">350</span></div>
+        <div class="dish"><div class="nd"><span class="n">Лепёшка с зеленью</span><small>прямо из печи</small></div><span class="dots"></span><span class="p">120</span></div>
+      </div>
+    </div>
+    <div>
+      <div class="cat"><h3>с углей</h3>
+        <div class="dish"><div class="nd"><span class="n">Шашлык из баранины<span class="hit">хит</span></span><small>300 г, лук, гранатовый соус</small></div><span class="dots"></span><span class="p">890</span></div>
+        <div class="dish"><div class="nd"><span class="n">Люля-кебаб</span><small>говядина и баранина, 2 шт.</small></div><span class="dots"></span><span class="p">620</span></div>
+        <div class="dish"><div class="nd"><span class="n">Овощи на мангале</span><small>перец, баклажан, томаты</small></div><span class="dots"></span><span class="p">380</span></div>
+      </div>
+      <div class="cat"><h3>к чаю</h3>
+        <div class="dish"><div class="nd"><span class="n">Медовик</span><small>по рецепту хозяйки</small></div><span class="dots"></span><span class="p">280</span></div>
+        <div class="dish"><div class="nd"><span class="n">Чай с чабрецом</span><small>чайник на двоих</small></div><span class="dots"></span><span class="p">200</span></div>
+      </div>
+    </div>
+    <div class="menu-photo">
+      <img src="img/f_e.jpg" alt="Шашлык с картофелем и овощами">
+      <div class="tag"><b>сет «Семья»</b><span>на 4 персоны — 2 900 ₽</span></div>
+    </div>
+  </div>
+</div></section>
+
+<section class="banquet" id="banquet">
+  <div class="img" role="img" aria-label="Зал кафе"></div>
+  <div class="txt">
+    <h2>Свадьба,<br>мовлид,<br>юбилей</h2>
+    <p>Отдельный зал с живыми цветами, свой вход и парковка на 40 машин. Составим меню под ваш бюджет и встретим гостей вовремя.</p>
+    <div class="cap"><div><b>120</b><span>гостей</span></div><div><b>от 1 800 ₽</b><span>на человека</span></div><div><b>0 ₽</b><span>аренда зала</span></div></div>
+    <a class="btn" href="#book" style="align-self:flex-start">Рассчитать банкет →</a>
+  </div>
+</section>
+
+<section class="rev" id="rev"><div class="w">
+  <div class="rev-head"><h2>Гости<br>говорят</h2><div class="score"><b>4,9</b><div><span>★★★★★</span>1 240 отзывов<br>на Яндекс Картах и 2ГИС</div></div></div>
+  <div class="rev-grid">
+    <div class="card"><div class="stars">★★★★★</div><q>Жижиг-галнаш точь-в-точь как готовила бабушка. Порция — на двоих, честно.</q><div class="who">Мадина</div><div class="dish-ref">заказывала доставку</div></div>
+    <div class="card"><div class="stars">★★★★★</div><q>Делали свадьбу на 110 человек. Ни одной накладки, горячее подавали вовремя.</q><div class="who">Ислам</div><div class="dish-ref">банкетный зал</div></div>
+    <div class="card"><div class="stars">★★★★★</div><q>Шашлык привезли через полчаса, ещё дымился. Теперь заказываем каждую пятницу.</q><div class="who">Аза</div><div class="dish-ref">сет «Семья»</div></div>
+  </div>
+</div></section>
+
+<section class="book" id="book">
+  <div class="w">
+    <div>
+      <h2>Ждём<br>к <em>столу</em></h2>
+      <div class="info">
+        <div><span>Адрес</span><b>Назрань, пр. Базоркина, 1</b></div>
+        <div><span>Часы</span><b>Ежедневно 9:00 – 23:00</b></div>
+        <div><span>Телефон</span><b>+7 (900) 000-00-00</b></div>
+        <div><span>Доставка</span><b>Назрань, Магас, Карабулак</b></div>
+      </div>
+    </div>
+    <form onsubmit="return false">
+      <h3>Бронирование</h3>
+      <p>Подтвердим бронь звонком за 10 минут</p>
+      <div class="row"><div><label>Имя</label><div class="fld">Мадина</div></div><div><label>Телефон</label><div class="fld">+7 (___) ___-__-__</div></div></div>
+      <label>Гостей</label>
+      <div class="chips"><span class="chip">2</span><span class="chip on">4</span><span class="chip">6</span><span class="chip">8+</span></div>
+      <div class="row"><div><label>Дата</label><div class="fld">Пт, 17 октября</div></div><div><label>Время</label><div class="fld">19:30</div></div></div>
+      <a class="btn" href="#">Забронировать стол</a>
+      <div class="fine">Бронь придёт администратору в Telegram</div>
+    </form>
+  </div>
+  <div class="towers" aria-hidden="true" style="position:absolute;left:0;right:0;bottom:0">
+    <svg viewBox="0 0 1440 160" preserveAspectRatio="none" style="width:100%;height:100%"><use href="#tw" x="40" y="10" width="54" height="150"/><use href="#tw2" x="90" y="50" width="40" height="110"/><use href="#tw" x="1340" y="30" width="48" height="130"/></svg>
+  </div>
+</section>
+
+<footer><div class="w"><span>© 2026 Горный очаг · кафе ингушской кухни</span><span>Демо-проект для портфолио</span></div></footer>
+</body>
+</html>

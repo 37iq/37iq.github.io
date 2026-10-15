@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Флёр — цветочная мастерская</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Yeseva+One&family=Jost:wght@400;500;600&family=Bad+Script&display=swap" rel="stylesheet">
+<style>
+:root{--pink:#FADCDE;--plum:#2B1630;--poppy:#FF5B3A;--leaf:#2F5D3A;--milk:#FFF8F4;--kraft:#C9A27A;--kraft-d:#9C7650;
+  --d:'Yeseva One',serif;--b:'Jost',sans-serif;--h:'Bad Script',cursive}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:#010203}
+body{background:var(--milk);color:var(--plum);font-family:var(--b);-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--poppy);outline-offset:3px}
+.w{max-width:1320px;margin:0 auto;padding:0 48px}
+.up{text-transform:uppercase;letter-spacing:2.5px;font-size:13px;font-weight:500}
+
+/* HERO */
+.hero{background:var(--pink);position:relative;overflow:hidden;height:960px}
+.bar{position:relative;z-index:5;display:flex;justify-content:space-between;align-items:center;padding:30px 48px;max-width:1440px;margin:0 auto}
+.logo{font-family:var(--d);font-size:30px}
+.bar nav{display:flex;gap:32px}
+.bag{display:flex;align-items:center;gap:10px;background:var(--plum);color:var(--milk);border-radius:40px;padding:13px 22px;font-weight:500}
+.bag b{background:var(--poppy);border-radius:50%;width:22px;height:22px;display:inline-flex;align-items:center;justify-content:center;font-size:12px}
+.word{position:absolute;left:0;right:0;top:150px;text-align:center;font-family:var(--d);font-size:500px;line-height:.85;color:var(--plum);letter-spacing:10px;z-index:1}
+.word span{color:var(--poppy)}
+.pic{position:absolute;left:50%;top:110px;transform:translateX(-50%);width:880px;height:880px;background:url(img/l_c_cut.png) center/contain no-repeat;z-index:2;filter:drop-shadow(0 30px 40px rgba(43,22,48,.18))}
+.intro{position:absolute;left:48px;bottom:70px;z-index:3;max-width:330px}
+.intro p{font-size:20px;line-height:1.5;margin-bottom:28px}
+.btn{display:inline-flex;align-items:center;gap:12px;background:var(--plum);color:var(--milk);border-radius:50px;padding:20px 32px;font-weight:600;font-size:17px}
+.btn.p{background:var(--poppy)}
+.hang{position:absolute;right:90px;top:430px;z-index:3;width:240px;transform-origin:50% 0;transform:rotate(8deg)}
+.hang .str{display:block;width:2px;height:150px;background:var(--plum);margin:0 auto;opacity:.6}
+.tag{background:var(--kraft);color:var(--plum);border-radius:10px 10px 14px 14px;padding:34px 22px 22px;position:relative;text-align:center;box-shadow:0 18px 30px rgba(43,22,48,.18);clip-path:polygon(22% 0,78% 0,100% 16%,100% 100%,0 100%,0 16%)}
+.tag:before{content:'';position:absolute;left:50%;top:12px;width:14px;height:14px;border-radius:50%;background:var(--pink);transform:translateX(-50%);box-shadow:inset 0 0 0 2px var(--kraft-d)}
+.tag .h{font-family:var(--h);font-size:28px;line-height:1.1;display:block}
+.tag b{font-family:var(--d);font-weight:400;font-size:40px;display:block;margin-top:8px}
+.tag small{font-size:12px;letter-spacing:2px;text-transform:uppercase;opacity:.7}
+.timer{position:absolute;right:48px;bottom:60px;display:none;z-index:3;text-align:right}
+.timer b{font-family:var(--d);font-size:110px;line-height:.8;display:block}
+.timer span{font-family:var(--h);font-size:28px}
+
+/* SHOWCASE */
+.show{padding:130px 0 110px}
+.sh-h{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:60px}
+h2{font-family:var(--d);font-weight:400;font-size:96px;line-height:.92;letter-spacing:-1px}
+h2 em{font-style:normal;color:var(--poppy)}
+.sh-h p{max-width:400px;font-size:18px;line-height:1.55;color:#5d4a60}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:40px 34px}
+.it{position:relative}
+.it .ph{height:470px;border-radius:200px 200px 22px 22px;background-size:cover;background-position:center}
+.it:nth-child(2) .ph{border-radius:22px}
+.it:nth-child(3) .ph{border-radius:22px 22px 200px 200px}
+.it:nth-child(4) .ph{border-radius:22px 200px 22px 22px}
+.it:nth-child(5) .ph{border-radius:200px 200px 22px 22px}
+.it .meta{display:flex;flex-direction:column;gap:4px;margin-top:18px}
+.it h3{font-family:var(--d);font-weight:400;font-size:30px}
+.it .meta span{font-size:15px;color:#7a677c}
+.it .mini{position:absolute;top:24px;right:-6px;width:150px;transform:rotate(9deg);transform-origin:50% 0}
+.it .mini .str{height:44px}
+.it .mini .tag{padding:28px 14px 14px}
+.it .mini .tag .h{font-size:20px}
+.it .mini .tag b{font-size:28px;margin-top:2px}
+.it:nth-child(even) .mini{transform:rotate(-7deg);left:-6px;right:auto}
+.own{background:var(--plum);color:var(--milk);border-radius:22px;height:470px;padding:40px;display:flex;flex-direction:column;justify-content:space-between}
+.own h3{font-family:var(--d);font-weight:400;font-size:50px;line-height:1}
+.own p{color:#cdbfd0;font-size:17px;line-height:1.5}
+.sw{display:flex;gap:10px}
+.sw i{width:42px;height:42px;border-radius:50%;border:3px solid var(--plum);box-shadow:0 0 0 2px rgba(255,248,244,.35)}
+
+/* OCCASIONS */
+.occ{background:var(--leaf);color:var(--milk);padding:120px 0;overflow:hidden}
+.occ h2{margin-bottom:56px}
+.occ h2 em{color:var(--pink)}
+.cloud{display:flex;flex-wrap:wrap;gap:16px}
+.cloud span{font-family:var(--d);font-size:46px;border:2px solid rgba(255,248,244,.45);border-radius:80px;padding:12px 34px 16px;display:inline-flex;align-items:center;gap:16px}
+.cloud span small{font-family:var(--b);font-size:15px;opacity:.7}
+.cloud span.on{background:var(--pink);color:var(--plum);border-color:var(--pink)}
+.cloud span.po{background:var(--poppy);border-color:var(--poppy)}
+
+/* ROUTE */
+.route{padding:130px 0;background:var(--milk)}
+.rg{display:grid;grid-template-columns:420px 1fr;gap:70px;align-items:center}
+.rg p{font-size:18px;line-height:1.6;color:#5d4a60;margin-top:26px}
+.map{background:var(--pink);border-radius:30px;height:440px;position:relative;overflow:hidden}
+.map svg{position:absolute;inset:0;width:100%;height:100%}
+.pin{position:absolute;transform:translate(-50%,-100%);text-align:center}
+.pin span{white-space:nowrap}.pin b{display:block;background:var(--plum);color:var(--milk);border-radius:30px;padding:9px 16px;font-weight:600;font-size:15px;white-space:nowrap}
+.pin b.home{background:var(--poppy)}
+.pin span{font-family:var(--h);font-size:24px;display:block;margin-top:4px}
+.pin i{display:block;width:12px;height:12px;border-radius:50%;background:var(--plum);margin:6px auto 0;box-shadow:0 0 0 6px rgba(43,22,48,.15)}
+
+/* CARDS */
+.notes{padding:0 0 130px}
+.ng{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
+.note{background:#fff;border-radius:6px;padding:40px 36px;box-shadow:0 20px 40px rgba(43,22,48,.08);position:relative;border-top:10px solid var(--pink)}
+.note:nth-child(1){transform:rotate(-2deg)}.note:nth-child(2){transform:rotate(1.5deg) translateY(20px)}.note:nth-child(3){transform:rotate(-1deg)}
+.note p{font-family:var(--h);font-size:27px;line-height:1.35;margin-bottom:24px}
+.note .who{display:flex;justify-content:space-between;font-size:14px;color:#7a677c;text-transform:uppercase;letter-spacing:1.5px}
+
+/* ORDER */
+.order{background:var(--plum);color:var(--milk);padding:120px 0}
+.og{display:grid;grid-template-columns:1fr 560px;gap:80px;align-items:center}
+.order h2 em{color:var(--pink)}
+.order .info{margin-top:40px;display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.order .info .up{display:block;color:var(--pink);margin-bottom:6px;font-size:12px}
+.order .info b{font-size:19px;font-weight:500}
+.form{background:var(--milk);color:var(--plum);border-radius:30px;padding:44px}
+.form h3{font-family:var(--d);font-weight:400;font-size:40px;margin-bottom:24px}
+.form .up{display:block;margin-bottom:12px;font-size:12px;color:#7a677c}
+.sizes{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:24px}
+.sz{border:2px solid #ead9dc;border-radius:16px;padding:14px;text-align:center}
+.sz b{font-family:var(--d);font-weight:400;font-size:30px;display:block}
+.sz span{font-size:14px;color:#7a677c}
+.sz.on{border-color:var(--plum);background:var(--pink)}
+.pal{display:flex;gap:12px;margin-bottom:24px}
+.pal i{width:46px;height:46px;border-radius:50%;display:block}
+.pal i.on{box-shadow:0 0 0 3px var(--milk),0 0 0 5px var(--plum)}
+.card-txt{border:2px dashed #e0c9cd;border-radius:16px;padding:18px;font-family:var(--h);font-size:24px;margin-bottom:24px;color:#6d5970}
+.form .btn{width:100%;justify-content:center;background:var(--poppy)}
+footer{background:var(--plum);color:rgba(255,248,244,.5);border-top:1px solid rgba(255,248,244,.1);padding:30px 0;font-size:14px}
+footer .w{display:flex;justify-content:space-between}
+@media(max-width:900px){.word{font-size:180px}.pic{width:100%}.hang,.timer{display:none}.grid,.ng,.rg,.og{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="bar">
+    <a class="logo" href="#">Флёр</a>
+    <nav class="up"><a href="#show">Букеты</a><a href="#occ">Поводы</a><a href="#route">Доставка</a><a href="#order">Заказ</a></nav>
+    <a class="bag" href="#order">Корзина <b>1</b></a>
+  </div>
+  <div class="word" aria-hidden="true">Фл<span>ё</span>р</div>
+  <div class="pic" role="img" aria-label="Руки держат букет в форме сердца"></div>
+  <div class="intro">
+    <p>Соберём букет под ваш повод и пришлём фото до отправки. Не понравится — переделаем бесплатно.</p>
+    <a class="btn p" href="#show">Выбрать букет →</a>
+  </div>
+  <div class="hang"><span class="str" style="height:60px"></span><div class="tag"><span class="h">букет «Сердце»</span><b>4 900 ₽</b><small>пионовидные розы</small></div></div>
+  <div class="timer"><b>90</b><span>минут — и цветы у двери</span></div>
+</header>
+
+<section class="show" id="show"><div class="w">
+  <div class="sh-h"><h2>Сегодня<br>в <em>вазах</em></h2><p>Цветы приходят от поставщиков два раза в неделю. Всё, что на витрине, можно забрать сегодня.</p></div>
+  <div class="grid">
+    <div class="it"><div class="ph" style="background-image:url(img/l_b.jpg)"></div><div class="mini"><span class="str"></span><div class="tag"><span class="h">Радуга</span><b>6 500</b></div></div><div class="meta"><h3>Радужные розы</h3><span>25 шт · 50 см</span></div></div>
+    <div class="it"><div class="ph" style="background-image:url(img/flow.jpg)"></div><div class="mini"><span class="str"></span><div class="tag"><span class="h">Сад</span><b>5 200</b></div></div><div class="meta"><h3>Садовый букет</h3><span>розы, эустома, эвкалипт</span></div></div>
+    <div class="it"><div class="ph" style="background-image:url(img/l_d.jpg)"></div><div class="mini"><span class="str"></span><div class="tag"><span class="h">Нежность</span><b>3 900</b></div></div><div class="meta"><h3>В банке</h3><span>кустовые розы, гипсофила</span></div></div>
+    <div class="it"><div class="ph" style="background-image:url(img/flow2.jpg)"></div><div class="mini"><span class="str"></span><div class="tag"><span class="h">Весна</span><b>3 500</b></div></div><div class="meta"><h3>Тюльпаны</h3><span>25 шт · пион. тюльпаны</span></div></div>
+    <div class="it"><div class="ph" style="background-image:url(img/l_a.jpg)"></div><div class="mini"><span class="str"></span><div class="tag"><span class="h">Поле</span><b>2 900</b></div></div><div class="meta"><h3>Полевые маки</h3><span>сезонный букет</span></div></div>
+    <div class="own"><h3>Соберите свой букет</h3><p>Выберите размер и палитру — флорист подберёт цветы и пришлёт фото на согласование.</p><div class="sw"><i style="background:#F5CDD4"></i><i style="background:#FF5B3A"></i><i style="background:#F2E8D5"></i><i style="background:#9C6ADE"></i><i style="background:#2F5D3A"></i></div><a class="btn p" href="#order" style="align-self:flex-start">Собрать →</a></div>
+  </div>
+</div></section>
+
+<section class="occ" id="occ"><div class="w">
+  <h2>Какой<br><em>повод?</em></h2>
+  <div class="cloud">
+    <span class="on">Маме <small>412 букетов</small></span><span>Любимой <small>389</small></span><span class="po">Свадьба <small>под ключ</small></span><span>Выписка из роддома <small>шары + цветы</small></span>
+    <span>Извиниться <small>работает</small></span><span>Учителю <small>к 5 октября</small></span><span>Просто так <small>лучший повод</small></span><span>Юбилей <small>101 роза</small></span>
+  </div>
+</div></section>
+
+<section class="route" id="route"><div class="w rg">
+  <div><h2>Доставка<br>за <em>90</em> минут</h2><p>Курьер везёт букет в термобоксе и звонит за 10 минут. Можно анонимно — открытку подпишем как попросите.</p></div>
+  <div class="map">
+    <svg viewBox="0 0 800 440" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0 330 C140 300 220 360 360 320 S600 260 800 300" stroke="#fff" stroke-width="26" fill="none" opacity=".45"/>
+      <path d="M150 100 C260 240 360 150 430 230 S620 120 680 330" stroke="#2B1630" stroke-width="3" stroke-dasharray="2 12" stroke-linecap="round" fill="none"/>
+      <path d="M430 230 C470 300 520 340 560 380" stroke="#2B1630" stroke-width="3" stroke-dasharray="2 12" stroke-linecap="round" fill="none"/>
+    </svg>
+    <div class="pin" style="left:150px;top:100px"><b class="home">Флёр · Назрань</b><i></i></div>
+    <div class="pin" style="left:430px;top:230px"><b>Магас</b><span>25 минут</span><i></i></div>
+    <div class="pin" style="left:680px;top:330px"><b>Сунжа</b><span>60 минут</span><i></i></div>
+    <div class="pin" style="left:560px;top:380px"><b>Карабулак</b><span>40 минут</span><i></i></div>
+  </div>
+</div></section>
+
+<section class="notes"><div class="w ng">
+  <div class="note"><p>Букет был ещё красивее, чем на фото! Мама расплакалась от счастья.</p><div class="who"><span>Амина</span><span>«Сердце»</span></div></div>
+  <div class="note"><p>Заказал в 11 вечера, утром в 8 цветы уже были у двери. Спасибо!</p><div class="who"><span>Рашид</span><span>доставка утром</span></div></div>
+  <div class="note"><p>Оформили нашу свадьбу — арка из живых цветов, гости до сих пор вспоминают.</p><div class="who"><span>Лиана</span><span>свадьба</span></div></div>
+</div></section>
+
+<section class="order" id="order"><div class="w og">
+  <div>
+    <h2>Соберём<br>ваш <em>букет</em></h2>
+    <div class="info">
+      <div><span class="up">мастерская</span><b>Назрань, ул. Муталиева, 19</b></div>
+      <div><span class="up">работаем</span><b>Круглосуточно</b></div>
+      <div><span class="up">телефон</span><b>+7 (900) 000-00-00</b></div>
+      <div><span class="up">оплата</span><b>После фото букета</b></div>
+    </div>
+  </div>
+  <div class="form">
+    <h3>Ваш букет</h3>
+    <span class="up">размер</span>
+    <div class="sizes"><div class="sz"><b>S</b><span>2 900 ₽</span></div><div class="sz on"><b>M</b><span>4 500 ₽</span></div><div class="sz"><b>L</b><span>7 900 ₽</span></div></div>
+    <span class="up">палитра</span>
+    <div class="pal"><i class="on" style="background:#F5CDD4"></i><i style="background:#FF5B3A"></i><i style="background:#F2E8D5"></i><i style="background:#9C6ADE"></i><i style="background:#2F5D3A"></i></div>
+    <span class="up">текст открытки</span>
+    <div class="card-txt">Мама, с днём рождения! Люблю тебя ♡</div>
+    <a class="btn" href="#">Заказать за 4 500 ₽</a>
+  </div>
+</div></section>
+<footer><div class="w"><span>© 2026 Флёр · цветочная мастерская</span><span>Демо-проект для портфолио</span></div></footer>
+</body>
+</html>
