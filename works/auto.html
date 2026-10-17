@@ -136,7 +136,7 @@ th:nth-child(3),td:nth-child(3){display:none}td{font-size:14px}.total b{font-siz
 .steps{padding:70px 0}.steps h2{font-size:64px;margin-bottom:40px}.sg{grid-template-columns:1fr}.s{border-right:0;padding-left:0;border-bottom:1px solid #2a2a2a;padding-bottom:20px}
 .gal{padding-bottom:70px}.gg .p{height:300px}.nums{grid-template-columns:1fr 1fr}.nums div{padding:24px 18px}.nums b{font-size:40px}
 .cta{padding:70px 0}.cta h2{font-size:80px}.cinfo{grid-template-columns:1fr}form{padding:28px 18px}form h3{font-size:40px}.btn{font-size:24px;white-space:normal}}</style><!--/mobile-->
-<!--mkcss--><style>@media (max-width:700px){:root{--mk-a:#FFCC00;--mk-ac:#141414;--mk-sh:#141414;--mk-shf:#F1EEE8;--mk-db:rgba(20,20,20,.9);--mk-bb:#141414;--mk-bf:#FFCC00;--mk-font:'Sofia Sans Extra Condensed',sans-serif;--mk-fw:900;--mk-tt:uppercase;--mk-lfs:60px;--mk-ls:0;--mk-bfont:'Sofia Sans Condensed',sans-serif}
+<!--mkcss--><meta name="theme-color" content="#141414"><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%2064%2064%27%3E%3Crect%20width%3D%2764%27%20height%3D%2764%27%20rx%3D%2716%27%20fill%3D%27%23141414%27/%3E%3Ctext%20x%3D%2732%27%20y%3D%2745%27%20font-family%3D%27Georgia%2Cserif%27%20font-size%3D%2740%27%20font-weight%3D%27700%27%20text-anchor%3D%27middle%27%20fill%3D%27%23FFCC00%27%3E%D0%9F%3C/text%3E%3C/svg%3E"><meta name="description" content="Автосервис в Назрани: диагностика, ремонт по заказ-наряду, гарантия 12 месяцев и видео-отчёт о ремонте."><style>@media (max-width:700px){:root{--mk-a:#FFCC00;--mk-ac:#141414;--mk-sh:#141414;--mk-shf:#F1EEE8;--mk-db:rgba(20,20,20,.9);--mk-bb:#141414;--mk-bf:#FFCC00;--mk-font:'Sofia Sans Extra Condensed',sans-serif;--mk-fw:900;--mk-tt:uppercase;--mk-lfs:60px;--mk-ls:0;--mk-bfont:'Sofia Sans Condensed',sans-serif}
 .bar{padding:16px 18px;min-height:80px}
 .hero{grid-template-columns:minmax(0,1fr)!important}.hero > div{min-width:0}
 .hero h1{font-size:min(96px,21vw)}
@@ -149,7 +149,8 @@ th:nth-child(3),td:nth-child(3){display:none}td{font-size:14px}.total b{font-siz
 @keyframes mkgauge{from{transform:rotate(-120deg)}}
 .tape{margin:34px -10px 0!important;transform:rotate(-2.5deg)}
 .tape > div{--mk-mqs:18s}
-.og h2{font-size:78px}
+.og,.cg,.gg{grid-template-columns:minmax(0,1fr)!important}
+.og h2{font-size:min(78px,20vw)}.cta h2{word-break:break-word}
 .ticket{box-shadow:0 24px 50px rgba(0,0,0,.2)}
 .stamp{transition:transform .5s cubic-bezier(.3,1.6,.5,1),opacity .3s}
 .mk .stamp{opacity:0;transform:rotate(-30deg) scale(2.4)}
@@ -160,7 +161,7 @@ th:nth-child(3),td:nth-child(3){display:none}td{font-size:14px}.total b{font-siz
 .sg .s h3{font-size:44px}
 .gg{--mk-cw:86%}.gg .p{height:340px}
 .mk-dots{color:var(--haz)}
-.cta h2{font-size:92px}
+.cta h2{font-size:min(92px,24vw)}
 form .brands span{transition:background .2s,color .2s,border-color .2s}
 }
 @media (max-width:700px){
@@ -241,6 +242,10 @@ html.mk{scroll-behavior:smooth;-webkit-tap-highlight-color:transparent}
 .mk .mk-r.mk-pop{transform:scale(.6) translateY(10px)}
 .mk .mk-r.mk-v{opacity:1;transform:none}
 .mk .mk-in{animation:mkin 1s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(var(--i) * 110ms + 120ms)}
+
+/* режим скриншота */
+.mk-shot .mk-dk,.mk-shot .mk-pr{display:none!important}
+.mk-shot *{animation-play-state:paused!important}
 
 /* нажатия */
 .mk-tap{animation:mktap .35s cubic-bezier(.3,1.6,.5,1)}
@@ -385,7 +390,9 @@ html.mk{scroll-behavior:smooth;-webkit-tap-highlight-color:transparent}
 var C=window.MK||{};
 if(!matchMedia('(max-width:700px)').matches)return;
 var d=document,h=d.documentElement,b=d.body;
-var RM=matchMedia('(prefers-reduced-motion:reduce)').matches;
+var SHOT=/[?&]shot(=|&|$)/.test(location.search);
+var RM=SHOT||matchMedia('(prefers-reduced-motion:reduce)').matches;
+if(SHOT)h.classList.add('mk-shot');
 h.classList.add('mk');
 function $$(s,r){return s?Array.prototype.slice.call((r||d).querySelectorAll(s)):[]}
 function el(t,c,html){var e=d.createElement(t);if(c)e.className=c;if(html!=null)e.innerHTML=html;return e}
@@ -412,7 +419,10 @@ function tog(o){
   h.classList.toggle('mk-open',o);bt.setAttribute('aria-expanded',o);sh.setAttribute('aria-hidden',!o);
   bt.setAttribute('aria-label',o?'Закрыть меню':'Открыть меню');
   if(typeof tick==='function')tick();
+  buzz();
+  if(o){var f=sh.querySelector('nav a');if(f)setTimeout(function(){f.focus({preventScroll:true})},450)}else if(sh.contains(d.activeElement))bt.focus({preventScroll:true});
 }
+function buzz(){try{var ua=navigator.userActivation;if(navigator.vibrate&&ua&&ua.isActive&&ua.hasBeenActive&&matchMedia('(pointer:coarse)').matches)navigator.vibrate(8)}catch(e){}}
 bt.addEventListener('click',function(){tog()});
 $$('a',sh).forEach(function(a){a.addEventListener('click',function(){tog(false)})});
 d.addEventListener('keydown',function(e){if(e.key==='Escape')tog(false)});
@@ -422,6 +432,7 @@ var side=C.side||['Позвонить','tel:+79000000000','phone'];
 var dk=el('div','mk-dk','<a class="mk-dk-r" href="'+side[1]+'" aria-label="'+side[0]+'"'+(side[1].indexOf('http')===0?' target="_blank" rel="noopener"':'')+'>'+ICON[side[2]||'phone']+'</a>'+
   '<a class="mk-dk-m" href="'+C.cta[1]+'"'+(C.cta[1].indexOf('http')===0?' target="_blank" rel="noopener"':'')+'><b>'+C.cta[0]+'</b><span>→</span></a>');
 b.appendChild(dk);
+$$('a',dk).forEach(function(a){a.addEventListener('click',buzz)});
 var endIn=false;
 if(C.end&&d.querySelector(C.end)&&'IntersectionObserver'in window){
   new IntersectionObserver(function(es){endIn=es[0].isIntersecting;tick()},{threshold:.12}).observe(d.querySelector(C.end));
@@ -436,7 +447,7 @@ if(C.end&&d.querySelector(C.end)&&'IntersectionObserver'in window){
     g.addEventListener('click',function(e){
       var it=e.target.closest(p[1]);if(!it||!g.contains(it))return;
       $$(p[1],g).forEach(function(x){x.classList.toggle('on',x===it)});
-      it.classList.remove('mk-tap');void it.offsetWidth;it.classList.add('mk-tap');
+      buzz();it.classList.remove('mk-tap');void it.offsetWidth;it.classList.add('mk-tap');
     });
     $$(p[1],g).forEach(function(x){x.style.cursor='pointer'});
   });

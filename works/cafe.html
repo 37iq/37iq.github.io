@@ -140,7 +140,7 @@ footer .w{display:flex;justify-content:space-between}
 .cap{grid-template-columns:1fr 1fr;gap:20px}.cap b{font-size:30px}
 .rev{padding:70px 0}.rev-head{flex-direction:column;align-items:flex-start;gap:20px}.score b{font-size:60px}.card{transform:none!important}
 .book{padding:70px 0}.book h2{font-size:56px}.info{grid-template-columns:1fr}.row{grid-template-columns:1fr}form{padding:28px 20px}.chips{flex-wrap:wrap}}</style><!--/mobile-->
-<!--mkcss--><style>@media (max-width:700px){:root{--mk-a:#F4B63F;--mk-ac:#1A0E0C;--mk-sh:#7A0F25;--mk-shf:#F6EEE1;--mk-db:rgba(26,14,12,.86);--mk-bb:rgba(122,15,37,.92);--mk-bf:#F6EEE1;--mk-font:'Dela Gothic One',sans-serif;--mk-tt:uppercase;--mk-lfs:38px;--mk-ls:0}
+<!--mkcss--><meta name="theme-color" content="#7A0F25"><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%2064%2064%27%3E%3Crect%20width%3D%2764%27%20height%3D%2764%27%20rx%3D%2716%27%20fill%3D%27%237A0F25%27/%3E%3Ctext%20x%3D%2732%27%20y%3D%2745%27%20font-family%3D%27Georgia%2Cserif%27%20font-size%3D%2740%27%20font-weight%3D%27700%27%20text-anchor%3D%27middle%27%20fill%3D%27%23F4B63F%27%3E%D0%93%3C/text%3E%3C/svg%3E"><meta name="description" content="Кафе ингушской кухни в Назрани: жижиг-галнаш, шашлык на углях, банкетный зал на 120 гостей и доставка за 40 минут."><style>@media (max-width:700px){:root{--mk-a:#F4B63F;--mk-ac:#1A0E0C;--mk-sh:#7A0F25;--mk-shf:#F6EEE1;--mk-db:rgba(26,14,12,.86);--mk-bb:rgba(122,15,37,.92);--mk-bf:#F6EEE1;--mk-font:'Dela Gothic One',sans-serif;--mk-tt:uppercase;--mk-lfs:38px;--mk-ls:0}
 .top{padding:20px 0}.brand{font-size:19px}
 .hero{padding-bottom:150px}
 .plate{background:none!important;width:94%!important;margin-top:38px!important;box-shadow:0 40px 80px rgba(0,0,0,.45)}
@@ -154,19 +154,20 @@ footer .w{display:flex;justify-content:space-between}
 .band div.f{width:auto!important;flex-direction:column;gap:2px;padding:18px 6px 16px}
 .band div.f:nth-child(-n+3){border-bottom:2px solid rgba(122,15,37,.18)}
 .band b{font-size:42px!important;line-height:1}.band span{max-width:none;font-size:14px}
-.menu-head h2{font-size:62px}
+.menu-head h2{font-size:min(62px,19vw)}
 .cat{margin-bottom:34px}.cat h3{font-size:34px}
 .dish{padding:12px 0}.dish .n{font-size:17px}.dish .p{font-size:18px}
 .menu-photo{margin-top:6px}.menu-photo img{height:420px;border-radius:200px 200px 24px 24px}
 .menu-photo .tag{left:auto;right:12px;bottom:26px}
 .banquet .img{min-height:320px;background-position:center calc(50% + var(--mk-y,0) * 60px)}
 .banquet .img:after{background:linear-gradient(180deg,transparent 55%,var(--char))}
-.banquet h2{font-size:50px}
-.cap{grid-template-columns:1fr 1fr 1fr!important;gap:12px!important}.cap b{font-size:22px!important}.cap span{font-size:12px}
-.rev-head h2{font-size:54px}
+.banquet h2{font-size:min(50px,14.5vw)}
+.banquet,.book .w,.menu-grid,.hero-grid{grid-template-columns:minmax(0,1fr)!important}
+.cap{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:12px!important}.cap b{font-size:22px!important}.cap span{font-size:12px}
+.rev-head h2{font-size:min(54px,15vw)}
 .rev-grid{--mk-cw:84%}.rev-grid .card{transform:none;padding:30px 26px}
 .mk-dots{color:var(--garnet)}
-.book h2{font-size:64px}
+.book h2{font-size:min(64px,19vw)}
 form{border-radius:24px}
 .chip{transition:background .25s,color .25s,border-color .25s}
 }
@@ -248,6 +249,10 @@ html.mk{scroll-behavior:smooth;-webkit-tap-highlight-color:transparent}
 .mk .mk-r.mk-pop{transform:scale(.6) translateY(10px)}
 .mk .mk-r.mk-v{opacity:1;transform:none}
 .mk .mk-in{animation:mkin 1s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(var(--i) * 110ms + 120ms)}
+
+/* режим скриншота */
+.mk-shot .mk-dk,.mk-shot .mk-pr{display:none!important}
+.mk-shot *{animation-play-state:paused!important}
 
 /* нажатия */
 .mk-tap{animation:mktap .35s cubic-bezier(.3,1.6,.5,1)}
@@ -397,7 +402,9 @@ html.mk{scroll-behavior:smooth;-webkit-tap-highlight-color:transparent}
 var C=window.MK||{};
 if(!matchMedia('(max-width:700px)').matches)return;
 var d=document,h=d.documentElement,b=d.body;
-var RM=matchMedia('(prefers-reduced-motion:reduce)').matches;
+var SHOT=/[?&]shot(=|&|$)/.test(location.search);
+var RM=SHOT||matchMedia('(prefers-reduced-motion:reduce)').matches;
+if(SHOT)h.classList.add('mk-shot');
 h.classList.add('mk');
 function $$(s,r){return s?Array.prototype.slice.call((r||d).querySelectorAll(s)):[]}
 function el(t,c,html){var e=d.createElement(t);if(c)e.className=c;if(html!=null)e.innerHTML=html;return e}
@@ -424,7 +431,10 @@ function tog(o){
   h.classList.toggle('mk-open',o);bt.setAttribute('aria-expanded',o);sh.setAttribute('aria-hidden',!o);
   bt.setAttribute('aria-label',o?'Закрыть меню':'Открыть меню');
   if(typeof tick==='function')tick();
+  buzz();
+  if(o){var f=sh.querySelector('nav a');if(f)setTimeout(function(){f.focus({preventScroll:true})},450)}else if(sh.contains(d.activeElement))bt.focus({preventScroll:true});
 }
+function buzz(){try{var ua=navigator.userActivation;if(navigator.vibrate&&ua&&ua.isActive&&ua.hasBeenActive&&matchMedia('(pointer:coarse)').matches)navigator.vibrate(8)}catch(e){}}
 bt.addEventListener('click',function(){tog()});
 $$('a',sh).forEach(function(a){a.addEventListener('click',function(){tog(false)})});
 d.addEventListener('keydown',function(e){if(e.key==='Escape')tog(false)});
@@ -434,6 +444,7 @@ var side=C.side||['Позвонить','tel:+79000000000','phone'];
 var dk=el('div','mk-dk','<a class="mk-dk-r" href="'+side[1]+'" aria-label="'+side[0]+'"'+(side[1].indexOf('http')===0?' target="_blank" rel="noopener"':'')+'>'+ICON[side[2]||'phone']+'</a>'+
   '<a class="mk-dk-m" href="'+C.cta[1]+'"'+(C.cta[1].indexOf('http')===0?' target="_blank" rel="noopener"':'')+'><b>'+C.cta[0]+'</b><span>→</span></a>');
 b.appendChild(dk);
+$$('a',dk).forEach(function(a){a.addEventListener('click',buzz)});
 var endIn=false;
 if(C.end&&d.querySelector(C.end)&&'IntersectionObserver'in window){
   new IntersectionObserver(function(es){endIn=es[0].isIntersecting;tick()},{threshold:.12}).observe(d.querySelector(C.end));
@@ -448,7 +459,7 @@ if(C.end&&d.querySelector(C.end)&&'IntersectionObserver'in window){
     g.addEventListener('click',function(e){
       var it=e.target.closest(p[1]);if(!it||!g.contains(it))return;
       $$(p[1],g).forEach(function(x){x.classList.toggle('on',x===it)});
-      it.classList.remove('mk-tap');void it.offsetWidth;it.classList.add('mk-tap');
+      buzz();it.classList.remove('mk-tap');void it.offsetWidth;it.classList.add('mk-tap');
     });
     $$(p[1],g).forEach(function(x){x.style.cursor='pointer'});
   });

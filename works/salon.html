@@ -119,7 +119,7 @@ footer .w{display:flex;justify-content:space-between}
 .mini{grid-template-columns:1fr 1fr;gap:14px}.mini img{height:180px}
 .brands .w{flex-wrap:wrap;gap:12px 22px;justify-content:flex-start}.brands b{font-size:26px}
 .book{padding:70px 0}.bk{gap:40px}.bk h2{font-size:58px}.addr{grid-template-columns:1fr}.card{padding:28px 18px}.d b{font-size:22px}.times{flex-wrap:wrap}}</style><!--/mobile-->
-<!--mkcss--><style>@media (max-width:700px){:root{--mk-a:#E7B8AC;--mk-ac:#1A1214;--mk-sh:#4A0E1A;--mk-shf:#FBF3EE;--mk-db:rgba(26,18,20,.86);--mk-bb:rgba(26,18,20,.42);--mk-bf:#FBF3EE;--mk-font:'Cormorant Garamond',serif;--mk-fs:italic;--mk-fw:300;--mk-lfs:50px;--mk-ls:-.5px;--mk-bfont:'Manrope',sans-serif}
+<!--mkcss--><meta name="theme-color" content="#1A1214"><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%2064%2064%27%3E%3Crect%20width%3D%2764%27%20height%3D%2764%27%20rx%3D%2716%27%20fill%3D%27%234A0E1A%27/%3E%3Ctext%20x%3D%2732%27%20y%3D%2745%27%20font-family%3D%27Georgia%2Cserif%27%20font-size%3D%2740%27%20font-weight%3D%27700%27%20text-anchor%3D%27middle%27%20fill%3D%27%23E7B8AC%27%3EA%3C/text%3E%3C/svg%3E"><meta name="description" content="Студия красоты в Назрани: окрашивание Airtouch, стрижки, маникюр, брови и образ невесты. Онлайн-запись к мастеру."><style>@media (max-width:700px){:root{--mk-a:#E7B8AC;--mk-ac:#1A1214;--mk-sh:#4A0E1A;--mk-shf:#FBF3EE;--mk-db:rgba(26,18,20,.86);--mk-bb:rgba(26,18,20,.42);--mk-bf:#FBF3EE;--mk-font:'Cormorant Garamond',serif;--mk-fs:italic;--mk-fw:300;--mk-lfs:50px;--mk-ls:-.5px;--mk-bfont:'Manrope',sans-serif}
 .cover{height:100svh;min-height:720px;max-height:860px;background-position:30% calc(30% + var(--mk-s,0) * .3px)}
 .topline > span:last-child{display:none}.topline{top:28px}
 .mast{top:78px;font-size:122px;animation:mkmast 1.6s cubic-bezier(.2,.8,.2,1) both}
@@ -221,6 +221,10 @@ html.mk{scroll-behavior:smooth;-webkit-tap-highlight-color:transparent}
 .mk .mk-r.mk-v{opacity:1;transform:none}
 .mk .mk-in{animation:mkin 1s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(var(--i) * 110ms + 120ms)}
 
+/* режим скриншота */
+.mk-shot .mk-dk,.mk-shot .mk-pr{display:none!important}
+.mk-shot *{animation-play-state:paused!important}
+
 /* нажатия */
 .mk-tap{animation:mktap .35s cubic-bezier(.3,1.6,.5,1)}
 
@@ -321,7 +325,9 @@ while(x<150){const w=seed[i%seed.length];if(i%2===0){const r=document.createElem
 var C=window.MK||{};
 if(!matchMedia('(max-width:700px)').matches)return;
 var d=document,h=d.documentElement,b=d.body;
-var RM=matchMedia('(prefers-reduced-motion:reduce)').matches;
+var SHOT=/[?&]shot(=|&|$)/.test(location.search);
+var RM=SHOT||matchMedia('(prefers-reduced-motion:reduce)').matches;
+if(SHOT)h.classList.add('mk-shot');
 h.classList.add('mk');
 function $$(s,r){return s?Array.prototype.slice.call((r||d).querySelectorAll(s)):[]}
 function el(t,c,html){var e=d.createElement(t);if(c)e.className=c;if(html!=null)e.innerHTML=html;return e}
@@ -348,7 +354,10 @@ function tog(o){
   h.classList.toggle('mk-open',o);bt.setAttribute('aria-expanded',o);sh.setAttribute('aria-hidden',!o);
   bt.setAttribute('aria-label',o?'Закрыть меню':'Открыть меню');
   if(typeof tick==='function')tick();
+  buzz();
+  if(o){var f=sh.querySelector('nav a');if(f)setTimeout(function(){f.focus({preventScroll:true})},450)}else if(sh.contains(d.activeElement))bt.focus({preventScroll:true});
 }
+function buzz(){try{var ua=navigator.userActivation;if(navigator.vibrate&&ua&&ua.isActive&&ua.hasBeenActive&&matchMedia('(pointer:coarse)').matches)navigator.vibrate(8)}catch(e){}}
 bt.addEventListener('click',function(){tog()});
 $$('a',sh).forEach(function(a){a.addEventListener('click',function(){tog(false)})});
 d.addEventListener('keydown',function(e){if(e.key==='Escape')tog(false)});
@@ -358,6 +367,7 @@ var side=C.side||['Позвонить','tel:+79000000000','phone'];
 var dk=el('div','mk-dk','<a class="mk-dk-r" href="'+side[1]+'" aria-label="'+side[0]+'"'+(side[1].indexOf('http')===0?' target="_blank" rel="noopener"':'')+'>'+ICON[side[2]||'phone']+'</a>'+
   '<a class="mk-dk-m" href="'+C.cta[1]+'"'+(C.cta[1].indexOf('http')===0?' target="_blank" rel="noopener"':'')+'><b>'+C.cta[0]+'</b><span>→</span></a>');
 b.appendChild(dk);
+$$('a',dk).forEach(function(a){a.addEventListener('click',buzz)});
 var endIn=false;
 if(C.end&&d.querySelector(C.end)&&'IntersectionObserver'in window){
   new IntersectionObserver(function(es){endIn=es[0].isIntersecting;tick()},{threshold:.12}).observe(d.querySelector(C.end));
@@ -372,7 +382,7 @@ if(C.end&&d.querySelector(C.end)&&'IntersectionObserver'in window){
     g.addEventListener('click',function(e){
       var it=e.target.closest(p[1]);if(!it||!g.contains(it))return;
       $$(p[1],g).forEach(function(x){x.classList.toggle('on',x===it)});
-      it.classList.remove('mk-tap');void it.offsetWidth;it.classList.add('mk-tap');
+      buzz();it.classList.remove('mk-tap');void it.offsetWidth;it.classList.add('mk-tap');
     });
     $$(p[1],g).forEach(function(x){x.style.cursor='pointer'});
   });
