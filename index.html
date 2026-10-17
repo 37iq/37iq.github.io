@@ -139,7 +139,7 @@ footer .w{display:flex;justify-content:space-between}
 .tower{width:100%;max-width:340px;transform:none}.f5{width:68%}.f4{width:74%}.f3{width:80%}.f2{width:86%}.f1{width:92%}.f0{width:100%}
 .roof{border-left-width:90px;border-right-width:90px;border-bottom-width:80px}.tag-ai{top:42px}.floor{height:70px}.floor b{font-size:17px}
 section{padding:70px 0}h2{font-size:34px}.cta h2{font-size:40px}.strip b{font-size:26px}.strip div.it{padding:22px 18px}.lk{font-size:16px}}</style><!--/mobile-->
-<!--mkcss--><style>@media (max-width:700px){:root{--mk-a:#C8873A;--mk-ac:#0D1B2A;--mk-sh:#0D1B2A;--mk-shf:#F3F6F8;--mk-db:rgba(13,27,42,.9);--mk-bb:rgba(13,27,42,.92);--mk-bf:#F3F6F8;--mk-font:'Tektur',sans-serif;--mk-fw:900;--mk-lfs:42px;--mk-ls:0}
+<!--mkcss--><meta name="theme-color" content="#D7E6F0"><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%2064%2064%27%3E%3Crect%20width%3D%2764%27%20height%3D%2764%27%20rx%3D%2716%27%20fill%3D%27%230D1B2A%27/%3E%3Ctext%20x%3D%2732%27%20y%3D%2745%27%20font-family%3D%27Georgia%2Cserif%27%20font-size%3D%2740%27%20font-weight%3D%27700%27%20text-anchor%3D%27middle%27%20fill%3D%27%23C8873A%27%3Et%3C/text%3E%3C/svg%3E"><style>@media (max-width:700px){:root{--mk-a:#C8873A;--mk-ac:#0D1B2A;--mk-sh:#0D1B2A;--mk-shf:#F3F6F8;--mk-db:rgba(13,27,42,.9);--mk-bb:rgba(13,27,42,.92);--mk-bf:#F3F6F8;--mk-font:'Tektur',sans-serif;--mk-fw:900;--mk-lfs:42px;--mk-ls:0}
 header .w{height:72px}
 .hero{background:radial-gradient(120% 70% at 85% 10%,#e9f2f8 0%,transparent 60%),linear-gradient(180deg,var(--sky) 0%,var(--sky2) 100%)!important}
 .hero h1{font-size:42px;line-height:1.02}
@@ -153,6 +153,19 @@ header .w{height:72px}
 .strip b{font-size:24px}
 .svc{--mk-cw:80%}.svc .card{min-height:270px}
 .works .grid{--mk-cw:84%}
+.works [data-g=sites] .wk .im{aspect-ratio:auto;height:470px;position:relative;overflow:hidden;
+  background:radial-gradient(80% 60% at 50% 30%,#fff 0%,transparent 70%),linear-gradient(160deg,var(--sky),var(--sky2))!important}
+.works [data-g=sites] .wk .im:before{content:'';position:absolute;left:50%;top:26px;width:214px;height:452px;margin-left:-107px;border-radius:38px;
+  background:#0D1B2A;box-shadow:0 30px 60px rgba(13,27,42,.35),inset 0 0 0 2px #2b3a4c}
+.works [data-g=sites] .wk .im:after{content:'';position:absolute;left:50%;top:34px;width:198px;height:436px;margin-left:-99px;border-radius:31px;
+  background-image:linear-gradient(#0D1B2A,#0D1B2A),var(--m);background-size:58px 16px,100% auto;background-repeat:no-repeat;
+  background-position:center 0,center 0;animation:mkscroll 30s ease-in-out infinite alternate}
+.works [data-g=sites] .wk:nth-child(2) .im:after{animation-duration:26s;animation-delay:-6s}
+.works [data-g=sites] .wk:nth-child(3) .im:after{animation-duration:22s;animation-delay:-3s}
+.works [data-g=sites] .wk:nth-child(4) .im:after{animation-duration:27s;animation-delay:-9s}
+.works [data-g=sites] .wk:nth-child(5) .im:after{animation-duration:23s;animation-delay:-4s}
+@keyframes mkscroll{0%,6%{background-position:center 0,center 0}94%,100%{background-position:center 0,center 100%}}
+.works [data-g=sites] .wk .t{background:#fff}
 .mk-dots{color:var(--ink)}
 .steps{border-top:0!important;position:relative;padding-left:40px}
 .steps:before{content:'';position:absolute;left:9px;top:8px;bottom:24px;width:2px;background:rgba(13,27,42,.12)}
@@ -240,6 +253,10 @@ html.mk{scroll-behavior:smooth;-webkit-tap-highlight-color:transparent}
 .mk .mk-r.mk-v{opacity:1;transform:none}
 .mk .mk-in{animation:mkin 1s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(var(--i) * 110ms + 120ms)}
 
+/* режим скриншота */
+.mk-shot .mk-dk,.mk-shot .mk-pr{display:none!important}
+.mk-shot *{animation-play-state:paused!important}
+
 /* нажатия */
 .mk-tap{animation:mktap .35s cubic-bezier(.3,1.6,.5,1)}
 
@@ -308,11 +325,11 @@ html.mk{scroll-behavior:smooth;-webkit-tap-highlight-color:transparent}
   <div class="sh"><h2>Работы</h2><p>Демо-проекты для разных сфер. Сайты открываются вживую, можно полистать.</p></div>
   <div class="tabs" role="tablist"><button class="on" data-t="sites">Сайты</button><button data-t="bots">Telegram-боты</button></div>
   <div class="grid" data-g="sites">
-    <a class="wk" href="works/cafe.html" target="_blank"><div class="im" style="background-image:url(works/cafe_thumb.jpg)"></div><div class="t"><div><h3>Горный очаг</h3><span class="mono">кафе · лендинг</span></div><span class="go">открыть ↗</span></div></a>
-    <a class="wk" href="works/dent.html" target="_blank"><div class="im" style="background-image:url(works/dent_thumb.jpg)"></div><div class="t"><div><h3>Белая линия</h3><span class="mono">стоматология</span></div><span class="go">открыть ↗</span></div></a>
-    <a class="wk" href="works/salon.html" target="_blank"><div class="im" style="background-image:url(works/salon_thumb.jpg)"></div><div class="t"><div><h3>Aura</h3><span class="mono">студия красоты</span></div><span class="go">открыть ↗</span></div></a>
-    <a class="wk" href="works/auto.html" target="_blank"><div class="im" style="background-image:url(works/auto_thumb.jpg)"></div><div class="t"><div><h3>ПроМотор</h3><span class="mono">автосервис</span></div><span class="go">открыть ↗</span></div></a>
-    <a class="wk" href="works/flow.html" target="_blank"><div class="im" style="background-image:url(works/flow_thumb.jpg)"></div><div class="t"><div><h3>Флёр</h3><span class="mono">цветочная мастерская</span></div><span class="go">открыть ↗</span></div></a>
+    <a class="wk" href="works/cafe.html" target="_blank"><div class="im" style="background-image:url(works/cafe_thumb.jpg);--m:url(works/m_cafe.jpg)"></div><div class="t"><div><h3>Горный очаг</h3><span class="mono">кафе · лендинг</span></div><span class="go">открыть ↗</span></div></a>
+    <a class="wk" href="works/dent.html" target="_blank"><div class="im" style="background-image:url(works/dent_thumb.jpg);--m:url(works/m_dent.jpg)"></div><div class="t"><div><h3>Белая линия</h3><span class="mono">стоматология</span></div><span class="go">открыть ↗</span></div></a>
+    <a class="wk" href="works/salon.html" target="_blank"><div class="im" style="background-image:url(works/salon_thumb.jpg);--m:url(works/m_salon.jpg)"></div><div class="t"><div><h3>Aura</h3><span class="mono">студия красоты</span></div><span class="go">открыть ↗</span></div></a>
+    <a class="wk" href="works/auto.html" target="_blank"><div class="im" style="background-image:url(works/auto_thumb.jpg);--m:url(works/m_auto.jpg)"></div><div class="t"><div><h3>ПроМотор</h3><span class="mono">автосервис</span></div><span class="go">открыть ↗</span></div></a>
+    <a class="wk" href="works/flow.html" target="_blank"><div class="im" style="background-image:url(works/flow_thumb.jpg);--m:url(works/m_flow.jpg)"></div><div class="t"><div><h3>Флёр</h3><span class="mono">цветочная мастерская</span></div><span class="go">открыть ↗</span></div></a>
   </div>
   <div class="grid hide" data-g="bots">
     <a class="wk" href="bots/bot_cafe.jpg" target="_blank"><div class="im" style="background-image:url(bots/bot_cafe.jpg)"></div><div class="t"><div><h3>Заказы еды</h3><span class="mono">корзина · оплата · админ</span></div><span class="go">↗</span></div></a>
@@ -354,7 +371,9 @@ document.querySelectorAll('.tabs button').forEach(b=>b.addEventListener('click',
 var C=window.MK||{};
 if(!matchMedia('(max-width:700px)').matches)return;
 var d=document,h=d.documentElement,b=d.body;
-var RM=matchMedia('(prefers-reduced-motion:reduce)').matches;
+var SHOT=/[?&]shot(=|&|$)/.test(location.search);
+var RM=SHOT||matchMedia('(prefers-reduced-motion:reduce)').matches;
+if(SHOT)h.classList.add('mk-shot');
 h.classList.add('mk');
 function $$(s,r){return s?Array.prototype.slice.call((r||d).querySelectorAll(s)):[]}
 function el(t,c,html){var e=d.createElement(t);if(c)e.className=c;if(html!=null)e.innerHTML=html;return e}
@@ -381,7 +400,10 @@ function tog(o){
   h.classList.toggle('mk-open',o);bt.setAttribute('aria-expanded',o);sh.setAttribute('aria-hidden',!o);
   bt.setAttribute('aria-label',o?'Закрыть меню':'Открыть меню');
   if(typeof tick==='function')tick();
+  buzz();
+  if(o){var f=sh.querySelector('nav a');if(f)setTimeout(function(){f.focus({preventScroll:true})},450)}else if(sh.contains(d.activeElement))bt.focus({preventScroll:true});
 }
+function buzz(){try{var ua=navigator.userActivation;if(navigator.vibrate&&ua&&ua.isActive&&ua.hasBeenActive&&matchMedia('(pointer:coarse)').matches)navigator.vibrate(8)}catch(e){}}
 bt.addEventListener('click',function(){tog()});
 $$('a',sh).forEach(function(a){a.addEventListener('click',function(){tog(false)})});
 d.addEventListener('keydown',function(e){if(e.key==='Escape')tog(false)});
@@ -391,6 +413,7 @@ var side=C.side||['Позвонить','tel:+79000000000','phone'];
 var dk=el('div','mk-dk','<a class="mk-dk-r" href="'+side[1]+'" aria-label="'+side[0]+'"'+(side[1].indexOf('http')===0?' target="_blank" rel="noopener"':'')+'>'+ICON[side[2]||'phone']+'</a>'+
   '<a class="mk-dk-m" href="'+C.cta[1]+'"'+(C.cta[1].indexOf('http')===0?' target="_blank" rel="noopener"':'')+'><b>'+C.cta[0]+'</b><span>→</span></a>');
 b.appendChild(dk);
+$$('a',dk).forEach(function(a){a.addEventListener('click',buzz)});
 var endIn=false;
 if(C.end&&d.querySelector(C.end)&&'IntersectionObserver'in window){
   new IntersectionObserver(function(es){endIn=es[0].isIntersecting;tick()},{threshold:.12}).observe(d.querySelector(C.end));
@@ -405,7 +428,7 @@ if(C.end&&d.querySelector(C.end)&&'IntersectionObserver'in window){
     g.addEventListener('click',function(e){
       var it=e.target.closest(p[1]);if(!it||!g.contains(it))return;
       $$(p[1],g).forEach(function(x){x.classList.toggle('on',x===it)});
-      it.classList.remove('mk-tap');void it.offsetWidth;it.classList.add('mk-tap');
+      buzz();it.classList.remove('mk-tap');void it.offsetWidth;it.classList.add('mk-tap');
     });
     $$(p[1],g).forEach(function(x){x.style.cursor='pointer'});
   });
