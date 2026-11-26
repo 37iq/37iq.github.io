@@ -270,10 +270,16 @@ dialog{color:var(--ink);width:min(560px,calc(100% - 30px));max-height:min(88dvh,
 @media(min-width:651px){.scene-word{padding-top:clamp(6px,2.6vw,37px)}.scene-word h1{font-size:clamp(104px,16.3vw,245px);letter-spacing:-.092em}.scene-product{top:27%;height:58%;left:44%;width:52%}.scene-blue .scene-product{top:24%;height:62%;left:46%;width:49%}.scene-label{bottom:19%}.scene-controls{border-top:0}.scene-controls::before{content:'';position:absolute;top:0;left:0;width:39%;border-top:1px solid #ac748956;pointer-events:none}}
 @media(max-width:650px){.scene::before{inset:13% -20% -22% 2%;border-radius:56% 8% 0 0}.scene-word h1{letter-spacing:-.093em}.scene-product{top:0;height:95%;left:5%;width:92%}.scene-blue .scene-product{top:-2%;height:96%;left:6%;width:88%}.scene-label{bottom:2%}}
 @media(prefers-reduced-motion:no-preference){.success>span{animation:confirmIn .42s var(--ease-scene) both}.success>span path{stroke-dasharray:27;stroke-dashoffset:0;animation:confirmDraw .32s .10s var(--ease-scene) both}@keyframes confirmIn{from{opacity:0;transform:scale(.75)}to{opacity:1;transform:none}}@keyframes confirmDraw{from{stroke-dashoffset:27}to{stroke-dashoffset:0}}}
+.scene-layer{position:absolute;inset:0;pointer-events:none}.scene-layer-out,.scene-layer-out *{pointer-events:none!important}.scene-tools{display:flex;align-items:center}.scene-auto{color:#6e334e}.scene-auto:hover{background:#f8eaf0}
+html[data-page-transition=nav] #main{view-transition-name:shop-page}html[data-page-transition=nav]::view-transition-old(root),html[data-page-transition=nav]::view-transition-new(root){animation:none}
+::view-transition-group(shop-page){animation-duration:.34s;animation-timing-function:var(--ease-scene)}::view-transition-old(shop-page){animation:navOut .22s cubic-bezier(.2,.65,.25,1) both}::view-transition-new(shop-page){animation:navIn .33s cubic-bezier(.2,.65,.25,1) both}
+@keyframes navOut{to{opacity:0;transform:translateY(-4px)}}@keyframes navIn{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){.scene-auto{visibility:hidden}}
 
-.basket-nav{position:relative}.basket-badge{position:absolute;top:2px;right:0;display:grid;place-items:center;min-width:18px;height:18px;padding:0 3px;border-radius:10px;background:var(--blue-dark);color:#fff;font-size:10px;font-weight:720;line-height:1;border:1px solid var(--paper)}.cart-glyph{display:inline-flex}.bottom .basket-badge{top:3px;right:calc(50% - 19px);display:grid}.basket-badge[hidden]{display:none!important}.flying-product{position:fixed;z-index:12;object-fit:cover;border-radius:8px;border:2px solid #fff;box-shadow:0 6px 21px #45223668;pointer-events:none;will-change:transform,opacity}
+.basket-nav{position:relative}.basket-badge{position:absolute;top:2px;right:0;display:grid;place-items:center;min-width:18px;height:18px;padding:0 3px;border-radius:10px;background:var(--blue-dark);color:#fff;font-size:10px;font-weight:720;line-height:1;border:1px solid var(--paper)}.cart-glyph{display:inline-flex}.bottom .basket-badge{top:3px;right:calc(50% - 19px);display:grid}.basket-badge[hidden]{display:none!important}
 .commerce-page{min-height:60vh;padding-top:34px}.commerce-page h1{font-size:clamp(32px,5vw,60px);line-height:1.03;font-weight:760;letter-spacing:-.065em}.commerce-page h2{font-size:clamp(20px,2.7vw,30px);line-height:1.1;font-weight:720;letter-spacing:-.045em}.commerce-heading{margin-bottom:20px}.commerce-heading p{margin-top:7px;color:var(--muted);font-size:14px}.commerce-empty{margin:18px 0 25px;padding:24px;background:var(--wash);border:1px solid var(--line);border-radius:8px;display:flex;align-items:flex-start;flex-direction:column;gap:12px}.commerce-empty>span{display:inline-grid;place-items:center;width:47px;height:47px;border:1px solid var(--line);border-radius:50%;background:var(--surface);color:var(--blue-dark)}.commerce-empty p{color:var(--muted);font-size:14px;margin-bottom:6px}.basket-layout,.buyer-layout{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(275px,1fr);gap:22px;align-items:start}.basket-items{border-top:1px solid var(--line)}.basket-row{display:grid;grid-template-columns:110px minmax(0,1fr) auto;gap:14px;padding:14px 0;border-bottom:1px solid var(--line)}.basket-photo{width:100%;aspect-ratio:1.09;padding:0;overflow:hidden;border-radius:6px;align-self:start}.basket-title{display:block;padding:0;text-align:left;font-weight:700;line-height:1.15;min-height:24px}.basket-title:hover{text-decoration:underline;text-underline-offset:3px}.basket-row-info>p{font-size:13px;color:var(--muted);margin:4px 0}.basket-row-end{display:flex;align-items:flex-end;flex-direction:column;justify-content:space-between;gap:4px}.basket-row-end strong{font-weight:720;white-space:nowrap}.basket-row-end .icon-button svg{width:18px;height:18px;color:var(--muted)}.basket-quantity{display:inline-flex;align-items:center;gap:3px;border:1px solid var(--line);border-radius:7px;margin-top:5px}.basket-quantity button{display:inline-grid;place-items:center;min-width:44px;min-height:44px;color:var(--blue-dark)}.basket-quantity button:hover{background:var(--wash)}.basket-quantity button:disabled{opacity:.42;cursor:default}.basket-quantity output{min-width:18px;text-align:center;font-size:14px;font-weight:650}.basket-quantity svg{width:17px;height:17px}.basket-total,.buyer-panel,.buyer-history{border:1px solid var(--line);border-radius:8px;padding:18px;background:#fffaf9}.basket-total h2,.buyer-history h2{margin-bottom:14px}.basket-total>div,.checkout-summary>div,.basket-sum{display:flex;justify-content:space-between;align-items:center;gap:9px;padding:9px 0;color:var(--ink);font-size:14px}.basket-total>div>span{color:var(--muted)}.basket-sum,.basket-total .basket-sum{border-top:1px solid var(--line);margin-top:5px;font-weight:650}.basket-sum strong{font-size:23px;white-space:nowrap;letter-spacing:-.045em}.basket-total .primary{margin-top:9px}.basket-total .primary:disabled{opacity:.5;cursor:default}.basket-total>p,.basket-warning{font-size:12px;margin-top:8px;color:var(--muted)}.basket-warning{color:#82522d!important}.buyer-layout{grid-template-columns:minmax(250px,.8fr) minmax(0,1.2fr)}.buyer-title{display:flex;align-items:center;gap:8px}.buyer-title svg{color:var(--blue-dark)}.buyer-panel p,.buyer-history>p{font-size:14px;color:var(--muted);margin:9px 0 11px}.buyer-order{display:grid;grid-template-columns:minmax(0,1fr) auto 19px;align-items:center;gap:9px;width:100%;padding:10px 0;border-top:1px solid var(--line);text-align:left}.buyer-order:hover{color:var(--blue-dark)}.buyer-order small,.checkout-summary small,.order-lines small{display:block;color:var(--muted);font-size:12px;margin-top:3px}.buyer-order>span:nth-child(2){text-align:right}.buyer-order svg{width:17px;height:17px;color:var(--blue-dark)}.checkout-summary>div:first-child{justify-content:flex-start;border-bottom:1px solid var(--line)}.checkout-summary>div:first-child svg{color:var(--blue-dark)}.finish-order{margin-top:12px}.order-lines{padding:0;list-style:none}.order-lines li{display:grid;grid-template-columns:52px minmax(0,1fr) auto;align-items:center;gap:8px;padding:7px 0;border-bottom:1px solid var(--line);font-size:13px}.order-lines li img{width:52px;height:43px;border-radius:4px}.order-lines li strong{white-space:nowrap}
 @media(max-width:650px){.bottom{grid-template-columns:repeat(5,minmax(0,1fr));padding-inline:3px}.bottom button{font-size:10px}.bottom .basket-badge{right:calc(50% - 18px);top:3px}.top-actions .basket-nav{display:none}.commerce-page{padding-top:22px}.commerce-heading{margin-bottom:13px}.basket-layout,.buyer-layout{grid-template-columns:1fr;gap:12px}.basket-row{grid-template-columns:78px minmax(0,1fr) auto;gap:8px;padding:11px 0}.basket-row-end strong,.basket-title{font-size:14px}.basket-row-info>p{font-size:12px}.basket-quantity button{min-width:39px;min-height:44px}.basket-total,.buyer-panel,.buyer-history{padding:13px}dialog.checkout-sheet{margin:auto auto 0;width:min(100%,555px);max-height:89dvh;border-radius:12px 12px 0 0;padding-bottom:max(18px,env(safe-area-inset-bottom))}}
+.pickup-line,.basket-total>.pickup-line,.checkout-summary>.pickup-line{display:flex;align-items:flex-start;justify-content:flex-start;gap:8px}.pickup-line>svg{flex:none;width:18px;height:18px;margin-top:2px;color:var(--blue-dark)}.pickup-place{display:grid;gap:3px;min-width:0}.pickup-place strong{font-size:13px;color:var(--ink);font-weight:670}.pickup-place small,.checkout-summary .pickup-place small{color:var(--muted);font-size:12px;margin:0;line-height:1.35}.pickup-place a{display:inline-flex;align-items:center;gap:5px;justify-self:start;min-height:44px;color:var(--blue-dark);font-size:12px;text-decoration:underline;text-underline-offset:3px}.pickup-place a svg{width:15px;height:15px}
 @media(max-width:650px){.bottom{grid-auto-flow:column;grid-auto-columns:1fr;grid-template-columns:none}}
 </style>
 <body>
@@ -464,7 +470,7 @@ updateCatalog = function () {
 detail = function () {
   const item=product(selectedId);
   if(!item) return empty('Товар не найден','Выбери другой товар в каталоге.');
-  return `<div class="wrap retail-detail"><div class="retail-detail-top"><button class="text-button back" data-view="${detailFrom}">${icon('back')} Назад</button><span>${esc(item.category)}</span></div><div class="retail-detail-body"><div class="gallery"><button class="gallery-photo" data-action="zoom" aria-label="Увеличить фото">${image(item.photos[photoIndex],item.name)}<span>${icon('expand')}</span></button>${item.photos.length>1?`<div class="gallery-strip" aria-label="Фотографии товара">${item.photos.map((key,i)=>`<button data-action="photo" data-index="${i}" aria-label="Фото ${i+1}" aria-pressed="${photoIndex===i}">${image(key,'')}</button>`).join('')}</div>`:''}</div><div class="retail-product-data"><div class="retail-product-meta"><span>Артикул ${esc(item.id)}</span><span class="retail-stock ${item.available?'':'out'}"><i></i>${item.available?'В наличии':'Под заказ'}</span></div><h1>${esc(item.name)}</h1><strong class="retail-detail-price">${fmt(item.price)}</strong><p>${esc(item.description||'')}</p><div class="retail-order"><button class="primary" data-action="basket-add" data-id="${esc(item.id)}" ${item.available?'':'disabled'}><span class="buy-label">${item.available?(basket.find(row=>row.id===item.id)?.quantity ? `В корзине · ${basket.find(row=>row.id===item.id).quantity} шт.` : 'Добавить в корзину'):'Пока недоступно'}</span>${cartGlyph}</button>${saveButton(item)}</div><div class="pickup">${icon('pin')} <span>Самовывоз из магазина</span></div></div></div></div>`;
+  return `<div class="wrap retail-detail"><div class="retail-detail-top"><button class="text-button back" data-view="${detailFrom}">${icon('back')} Назад</button><span>${esc(item.category)}</span></div><div class="retail-detail-body"><div class="gallery"><button class="gallery-photo" data-action="zoom" aria-label="Увеличить фото">${image(item.photos[photoIndex],item.name)}<span>${icon('expand')}</span></button>${item.photos.length>1?`<div class="gallery-strip" aria-label="Фотографии товара">${item.photos.map((key,i)=>`<button data-action="photo" data-index="${i}" aria-label="Фото ${i+1}" aria-pressed="${photoIndex===i}">${image(key,'')}</button>`).join('')}</div>`:''}</div><div class="retail-product-data"><div class="retail-product-meta"><span>Артикул ${esc(item.id)}</span><span class="retail-stock ${item.available?'':'out'}"><i></i>${item.available?'В наличии':'Под заказ'}</span></div><h1>${esc(item.name)}</h1><strong class="retail-detail-price">${fmt(item.price)}</strong><p>${esc(item.description||'')}</p><div class="retail-order"><button class="primary" data-action="basket-add" data-id="${esc(item.id)}" ${item.available?'':'disabled'}><span class="buy-label">${item.available?(basket.find(row=>row.id===item.id)?.quantity ? `В корзине · ${basket.find(row=>row.id===item.id).quantity} шт.` : 'Добавить в корзину'):'Пока недоступно'}</span>${cartGlyph}</button>${saveButton(item)}</div><div class="pickup pickup-line">${icon('pin')}${pickupPlace()}</div></div></div></div>`;
 };
 
 document.addEventListener('click',event=>{
@@ -501,6 +507,11 @@ let playIntro = true;
 let motionSwap = false;
 const prefersQuiet = window.matchMedia('(prefers-reduced-motion: reduce)');
 const replayIcon='<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 10a7 7 0 1 1 .6 6M5 5v5h5"/></svg>';
+const rotationDelay=5200;
+let rotationPaused=false;
+let nextLookAt=Date.now()+rotationDelay;
+const autoIcon=paused=>`<svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.55" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true">${paused?'<path d="m9 5 11 7-11 7Z"/>':'<path d="M9 5v14m6-14v14"/>'}</svg>`;
+const autoLabel=()=>rotationPaused?'Включить смену сервизов':'Приостановить смену сервизов';
 
 function porcelain(look,item) {
   if(item.photos[0]!==look.id) return image(item.photos[0],item.name,'class="raw-scene-photo"');
@@ -522,69 +533,101 @@ home = function () {
     <div class="scene-word"><h1>К столу<span>.</span></h1></div>
     <div class="scene-media" id="scene-media">${heroMedia()}</div>
     <div class="scene-copy"><p>Сервизы, чайные наборы и стекло для твоего стола.</p><button class="primary" data-action="retail-all">Открыть каталог ${icon('arrow')}</button></div>
-    <div class="scene-controls"><div class="scene-looks" aria-label="Выбрать сервиз">${looks.map((l,i)=>`<button data-action="scene-look" data-index="${i}" aria-pressed="${i===currentLook}"><i></i>${l.label}</button>`).join('')}</div><button class="scene-replay icon-button" data-action="scene-replay" aria-label="Повторить анимацию" title="Повторить анимацию">${replayIcon}</button><span class="sr-only" id="look-announcer" aria-live="polite"></span></div>
+    <div class="scene-controls"><div class="scene-looks" aria-label="Выбрать сервиз">${looks.map((l,i)=>`<button data-action="scene-look" data-index="${i}" aria-pressed="${i===currentLook}"><i></i>${l.label}</button>`).join('')}</div><div class="scene-tools"><button class="scene-auto icon-button" data-action="scene-auto" aria-label="${autoLabel()}" title="${autoLabel()}">${autoIcon(rotationPaused)}</button><button class="scene-replay icon-button" data-action="scene-replay" aria-label="Повторить анимацию" title="Повторить анимацию">${replayIcon}</button></div><span class="sr-only" id="look-announcer" aria-live="polite"></span></div>
   </section><div class="motion-catalog-content"><div class="motion-catalog-top"><h2>Выбрать посуду</h2><form id="retail-home-form">${searchMarkup('retail-home-search','')}<button type="submit" class="icon-button" aria-label="Найти посуду">${icon('arrow')}</button></form></div>${first}</div>`;
 };
 
-function changeLook(index, animate) {
+function changeLook(index, animate, automatic=false) {
   if(!Number.isInteger(index)||index<0||index>=looks.length||index===currentLook||motionSwap) return;
   const scene=document.querySelector('.scene');
   const media=document.getElementById('scene-media');
   if(!scene||!media) return;
+  nextLookAt=Date.now()+rotationDelay;
   const update=()=>{
     currentLook=index;
     for(const look of looks) scene.classList.toggle(`scene-${look.className}`,look===looks[index]);
     media.innerHTML=heroMedia();
     scene.querySelectorAll('[data-action=scene-look]').forEach((button,i)=>button.setAttribute('aria-pressed',String(i===index)));
-    scene.querySelector('#look-announcer').textContent=`На витрине: ${product(looks[index].id).name}`;
+    if(!automatic) scene.querySelector('#look-announcer').textContent=`На витрине: ${product(looks[index].id).name}`;
   };
   if(!animate||prefersQuiet.matches||!media.animate) {update();return;}
   motionSwap=true;
-  media.animate([{opacity:1,transform:'translateX(0)'},{opacity:0,transform:'translateX(-16px)'}], {duration:160,easing:'ease-out'}).finished.then(()=>{
-    if(!scene.isConnected) return;
-    update();
-    return media.animate([{opacity:0,transform:'translateX(24px)'},{opacity:1,transform:'translateX(0)'}],{duration:300,easing:'cubic-bezier(.2,.75,.25,1)'}).finished;
-  }).catch(()=>{}).finally(()=>{motionSwap=false;});
+  const outgoing=document.createElement('div'),incoming=document.createElement('div');
+  outgoing.className='scene-layer scene-layer-out';outgoing.inert=true;outgoing.setAttribute('aria-hidden','true');
+  incoming.className='scene-layer';
+  outgoing.append(...media.children);
+  const direction=index>currentLook?1:-1;
+  update();incoming.append(...media.children);media.append(outgoing,incoming);
+  const curve='cubic-bezier(.21,.68,.25,1)';
+  const inAnimation=incoming.animate([{opacity:0,transform:`translateX(${22*direction}px) scale(.985)`},{opacity:1,transform:'none'}],{duration:610,easing:curve});
+  const outAnimation=outgoing.animate([{opacity:1,transform:'none'},{opacity:0,transform:`translateX(${-14*direction}px) scale(.993)`}],{duration:480,easing:curve,fill:'forwards'});
+  Promise.allSettled([inAnimation.finished,outAnimation.finished]).then(()=>{
+    if(incoming.isConnected) incoming.replaceWith(...incoming.childNodes);
+    outgoing.remove();motionSwap=false;
+  });
 }
 
 const immediateGo=go;
 go = function (view,focus=true) {
   playIntro=false;
+  if(view==='home') nextLookAt=Date.now()+rotationDelay;
   immediateGo(view,focus);
 };
 
-let lastPointerAction=false;
 let activeTransition=null;
+const navDestinations=new Set(['home','catalog','saved','basket','profile']);
+function animateNavigation(kind,update) {
+  if(document.startViewTransition) {
+    document.documentElement.dataset.pageTransition=kind;
+    const transition=document.startViewTransition(update);
+    activeTransition=transition;
+    transition.finished.catch(()=>{}).finally(()=>{
+      if(activeTransition!==transition) return;
+      if(kind==='product') main.querySelector('.gallery-photo img')?.style.removeProperty('view-transition-name');
+      activeTransition=null;delete document.documentElement.dataset.pageTransition;
+    });
+  } else {
+    update();
+    main.animate?.([{opacity:.65,transform:'translateY(5px)'},{opacity:1,transform:'none'}],{duration:240,easing:'cubic-bezier(.23,1,.32,1)'});
+  }
+}
 let ignoreTapUntil=0;
 document.addEventListener('click',event=>{
   const control=event.target.closest('button');
   if(!control) return;
   const {action,id,index}=control.dataset;
   if(control.closest('.scene-media')&&event.detail>0&&performance.now()<ignoreTapUntil) {event.stopImmediatePropagation();return;}
-  if(action==='scene-look') changeLook(Number(index),event.detail>0);
+  if(action==='scene-look') {nextLookAt=Date.now()+rotationDelay;changeLook(Number(index),event.detail>0);}
+  if(action==='scene-auto') {
+    rotationPaused=!rotationPaused;nextLookAt=Date.now()+rotationDelay;
+    control.innerHTML=autoIcon(rotationPaused);control.setAttribute('aria-label',autoLabel());control.title=autoLabel();
+  }
   if(action==='scene-replay') {
     const scene=document.querySelector('.scene');
     if(!scene||prefersQuiet.matches) return;
+    nextLookAt=Date.now()+rotationDelay;
     scene.classList.remove('scene-intro');
     requestAnimationFrame(()=>requestAnimationFrame(()=>scene.classList.add('scene-intro')));
   }
-  if(event.detail===0||prefersQuiet.matches||!document.startViewTransition||activeTransition) return;
+  if(event.detail===0||prefersQuiet.matches||activeTransition) return;
   if(action==='detail'&&product(id)) {
     event.stopImmediatePropagation();
     if(current!=='detail') detailFrom=current;
     selectedId=id;photoIndex=0;
     const thumb=control.classList.contains('scene-product')?control:control.querySelector('img');
-    if(thumb) thumb.style.viewTransitionName='porcelain';
-    lastPointerAction=Boolean(thumb);
-    activeTransition=document.startViewTransition(()=>{
+    if(thumb&&document.startViewTransition) thumb.style.viewTransitionName='porcelain';
+    animateNavigation('product',()=>{
       go('detail');
-      if(lastPointerAction) main.querySelector('.gallery-photo img').style.viewTransitionName='porcelain';
+      if(thumb&&document.startViewTransition) main.querySelector('.gallery-photo img').style.viewTransitionName='porcelain';
     });
-  } else if(action==='retail-all'&&current==='home') {
+  } else if((action==='retail-all'&&current==='home')||(navDestinations.has(control.dataset.view)&&control.dataset.view!==current)) {
     event.stopImmediatePropagation();
-    activeTransition=document.startViewTransition(()=>{category='Все';search='';sort='default';retailStock=false;go('catalog');});
+    const next=action==='retail-all'?'catalog':control.dataset.view;
+    animateNavigation('nav',()=>{
+      if(next==='catalog'&&current==='home') {category='Все';search='';sort='default';retailStock=false;}
+      go(next);
+    });
   }
-  if(activeTransition) activeTransition.finished.catch(()=>{}).finally(()=>{activeTransition=null;lastPointerAction=false;});
 },true);
 
 let gesture;
@@ -603,6 +646,19 @@ main.addEventListener('pointerup',event=>{
   }
 },{passive:true});
 main.addEventListener('pointercancel',()=>{gesture=null;});
+main.addEventListener('animationend',event=>{
+  if(event.animationName==='productIn') event.target.closest('.scene')?.classList.remove('scene-intro');
+});
+
+window.setInterval(()=>{
+  if(current!=='home'||document.hidden||prefersQuiet.matches||rotationPaused||motionSwap||activeTransition) return;
+  const scene=main.querySelector('.scene');
+  if(!scene||Date.now()<nextLookAt) return;
+  const bounds=scene.getBoundingClientRect();
+  if(bounds.bottom<120||bounds.top>window.innerHeight-120||scene.querySelector(':focus-visible')||scene.querySelector('.scene-product:hover,.scene-label:hover')) return;
+  changeLook((currentLook+1)%looks.length,true,true);
+},250);
+document.addEventListener('visibilitychange',()=>{if(!document.hidden)nextLookAt=Date.now()+rotationDelay;});
 
 render();
 
@@ -616,6 +672,10 @@ let purchasePreview=null;
 const cartGlyph='<svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 9h14l1.2 11H3.8L5 9Z"/><path d="M9 10V7a3 3 0 0 1 6 0v3"/></svg>';
 const minusGlyph='<svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M6 12h12"/></svg>';
 const visibility = node => Boolean(node.getClientRects().length);
+const pickupStore={name:'Мега маркет',address:'Республика Северная Осетия — Алания, Пригородный район',url:'https://yandex.ru/maps/org/mega_market/56206234561/'};
+function pickupPlace() {
+  return `<span class="pickup-place"><strong>Самовывоз · ${pickupStore.name}</strong><small>${pickupStore.address}</small><a href="${pickupStore.url}" target="_blank" rel="noopener noreferrer">Открыть на карте ${icon('arrow')}</a></span>`;
+}
 
 function saveBuyer() {
   try {localStorage.setItem(cartKey,JSON.stringify({items:basket,orders:purchaseHistory,name:buyerName}));return true;} catch {return false;}
@@ -647,22 +707,15 @@ function updateBadges() {
   }
 }
 
-function animateBuy(button,item) {
+function animateBuy(button) {
   if(prefersQuiet.matches||!button||!document.body.animate) return;
   const dest=[...document.querySelectorAll('[data-cart-target]')].find(visibility);
   if(!dest) return;
-  const img=main.querySelector('.retail-detail .gallery-photo img');
-  const from=(img||button).getBoundingClientRect(),to=dest.getBoundingClientRect();
-  const size=Math.min(82,from.width*.38||82);
-  const startX=from.left+from.width/2-size/2, startY=Math.max(6,from.top+from.height/2-size/2);
-  const dx=to.left+to.width/2-size/2-startX,dy=to.top+to.height/2-size/2-startY;
-  const tile=document.createElement('img');
-  tile.alt='';tile.src=source(item.photos[0]);tile.className='flying-product';
-  Object.assign(tile.style,{width:`${size}px`,height:`${size}px`,left:`${startX}px`,top:`${startY}px`});
-  document.body.append(tile);
-  tile.animate([{opacity:1,transform:'translate(0) scale(1)'},{opacity:1,offset:.64,transform:`translate(${dx*.72}px,${dy*.48-35}px) scale(.65)`},{opacity:0,transform:`translate(${dx}px,${dy}px) scale(.16)`}],{duration:560,easing:'cubic-bezier(.33,.12,.25,1)'}).finished.then(()=>{
-    dest.animate([{transform:'scale(1)'},{transform:'scale(1.16)',offset:.46},{transform:'scale(1)'}],{duration:320,easing:'cubic-bezier(.2,.7,.25,1)'});
-  }).catch(()=>{}).finally(()=>tile.remove());
+  const easing='cubic-bezier(.22,.69,.26,1)';
+  const label=button.querySelector('.buy-label');
+  label?.animate([{opacity:.45,transform:'translateY(3px)'},{opacity:1,transform:'none'}],{duration:320,easing});
+  dest.querySelector('.cart-glyph')?.animate([{transform:'none'},{transform:'translateY(-3px)',offset:.4},{transform:'none'}],{duration:410,easing});
+  dest.querySelector('.basket-badge')?.animate([{opacity:.35,transform:'scale(.84)'},{opacity:1,transform:'scale(1)'}],{duration:350,delay:65,easing,fill:'backwards'});
 }
 
 function changeBasket(id,delta) {
@@ -684,7 +737,7 @@ function buyerBasket() {
   const {items,total,count}=infoBasket();
   if(!items.length) return `<div class="wrap commerce-page"><h1>Корзина</h1><div class="commerce-empty"><span>${cartGlyph}</span><h2>Корзина пока пуста</h2><p>Выбери посуду в каталоге, и она появится здесь.</p><button class="primary" data-action="retail-all">Открыть каталог ${icon('arrow')}</button></div></div>`;
   const available=items.every(({item})=>item.available);
-  return `<div class="wrap commerce-page"><div class="commerce-heading"><h1>Корзина</h1><p>${countLabel(count)}</p></div><div class="basket-layout"><div class="basket-items">${items.map(basketRow).join('')}</div><aside class="basket-total"><h2>Твой заказ</h2><div><span>Получение</span><strong>Самовывоз</strong></div><div class="basket-sum"><span>Итого</span><strong id="basket-amount" aria-live="polite">${fmt(total)}</strong></div>${available?'':'<p class="basket-warning">Убери товары, для которых нужно уточнить наличие.</p>'}<button class="primary full" data-action="basket-checkout" ${available?'':'disabled'}>Оформить заказ ${icon('arrow')}</button><p>Демонстрация оформления заказа</p></aside></div></div>`;
+  return `<div class="wrap commerce-page"><div class="commerce-heading"><h1>Корзина</h1><p>${countLabel(count)}</p></div><div class="basket-layout"><div class="basket-items">${items.map(basketRow).join('')}</div><aside class="basket-total"><h2>Твой заказ</h2><div class="pickup-line">${icon('pin')}${pickupPlace()}</div><div class="basket-sum"><span>Итого</span><strong id="basket-amount" aria-live="polite">${fmt(total)}</strong></div>${available?'':'<p class="basket-warning">Убери товары, для которых нужно уточнить наличие.</p>'}<button class="primary full" data-action="basket-checkout" ${available?'':'disabled'}>Оформить заказ ${icon('arrow')}</button><p>Демонстрация оформления заказа</p></aside></div></div>`;
 }
 
 function shownDate(date) {
@@ -728,11 +781,11 @@ document.addEventListener('click',event=>{
   if(action==='basket-add') {
     const item=product(id);
     if(!item||!changeBasket(id,1)) return;
-    animateBuy(button,item);
-    notify('Товар добавлен в корзину');
     const marker=button.querySelector('.buy-label');
     const quantity=basket.find(row=>row.id===id).quantity;
     if(marker) marker.textContent=`В корзине · ${quantity} шт.`;
+    animateBuy(button);
+    notify('Товар добавлен в корзину');
   } else if(action==='basket-minus'||action==='basket-plus'||action==='basket-remove') {
     if(!changeBasket(id,action==='basket-remove'?-99:action==='basket-minus'?-1:1)) return;
     render();
@@ -742,7 +795,7 @@ document.addEventListener('click',event=>{
     const {items,total,count}=infoBasket();
     if(!count||items.some(({item})=>!item.available)) return;
     purchasePreview={count,total};
-    openDialog(`<h2 id="dialog-title">Оформление заказа</h2><div class="checkout-summary"><div>${icon('pin')} <span><strong>Самовывоз</strong><small>Получение в магазине</small></span></div><div><span>${countLabel(count)}</span><strong>${fmt(total)}</strong></div></div><p class="muted">Демо-заказ сохранится в личном кабинете.</p><button class="primary full finish-order" data-action="basket-confirm">Подтвердить заказ ${icon('check')}</button>`,'checkout-sheet');
+    openDialog(`<h2 id="dialog-title">Оформление заказа</h2><div class="checkout-summary"><div class="pickup-line">${icon('pin')}${pickupPlace()}</div><div><span>${countLabel(count)}</span><strong>${fmt(total)}</strong></div></div><p class="muted">Демо-заказ сохранится в личном кабинете.</p><button class="primary full finish-order" data-action="basket-confirm">Подтвердить заказ ${icon('check')}</button>`,'checkout-sheet');
   } else if(action==='basket-confirm') completePurchase();
   else if(action==='buyer-edit') {
     openDialog(`<h2 id="dialog-title">Данные профиля</h2><form id="buyer-form"><label>Как тебя зовут?<input name="buyer-name" value="${esc(buyerName)}" autocomplete="given-name" maxlength="50" required placeholder="Имя"></label><button class="primary full" type="submit">Сохранить имя ${icon('check')}</button></form>`,'checkout-sheet');
